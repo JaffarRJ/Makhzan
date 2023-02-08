@@ -1,0 +1,52 @@
+[
+    {
+        "id": 1,
+        "no": "1",
+        "image": "avatar-02.jpg",
+        "name": "John Doe",
+        "designation": "Web Designer",
+        "department": "Designing",
+        "appraisaldate": "7 May 2019",
+        "status": "Active"
+    },
+    {
+        "id": 2,
+        "no": "2",
+        "image": "avatar-05.jpg",
+        "name": "Mike Litorus",
+        "designation": "IOS Developer",
+        "department": "IOS",
+        "appraisaldate": "7 May 2019",
+        "status": "Active"
+    },
+    {
+        "id": 3,
+        "no": "3",
+        "image": "avatar-13.jpg",
+        "name": "Bernardo Galaviz",
+        "designation": "Web Developer",
+        "department": "Designing",
+        "appraisaldate": "7 May 2019",
+        "status": "Active"
+    },
+    {
+        "id": 4,
+        "no": "4",
+        "image": "avatar-12.jpg",
+        "name": "Jeffery Warden",
+        "designation": "Web Developer",
+        "department": "Designing",
+        "appraisaldate": "7 May 2019",
+        "status": "Active"
+    },
+    {
+        "id": 5,
+        "no": "5",
+        "image": "avatar-11.jpg",
+        "name": "Wilmer Deluna",
+        "designation": "Team Leader",
+        "department": "IOS",
+        "appraisaldate": "7 May 2019",
+        "status": "Active"
+    }
+]

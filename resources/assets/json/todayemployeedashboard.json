@@ -1,0 +1,17 @@
+[
+    {
+        "id": 1,
+        "name": "Richard Miles is off sick today",
+        "image": "avatar-09.jpg"
+    },
+    {
+        "id": 2,
+        "name": "You are away today",
+        "image": "avatar-02.jpg"
+    },
+    {
+        "id": 3,
+        "name": "You are working from home today",
+        "image": "avatar-02.jpg"
+    }
+]

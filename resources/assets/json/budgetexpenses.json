@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "no": "1",
+        "notes": "Test",
+        "categoryname": "Hardware",
+        "subcategoryname": "Hardware Expenses",
+        "amount": "1000.00",
+        "revenuedate": "06 Jan 2020"
+    },
+    {
+        "id": 2,
+        "no": "2",
+        "notes": "Test",
+        "categoryname": "Project",
+        "subcategoryname": "Project Expenses",
+        "amount": "1000.00",
+        "revenuedate": "06 Jan 2020"
+    }
+]

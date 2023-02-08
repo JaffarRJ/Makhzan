@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "no": "1",
+        "image": "avatar-02.jpg",
+        "name": "John Doe",
+        "name1": "Web Designer",
+        "jobtitle": "Web Designer",
+        "department": "Department",
+        "status": "Offered"
+    },
+    {
+        "id": 2,
+        "no": "2",
+        "image": "avatar-09.jpg",
+        "name": "Richard Miles",
+        "name1": "Web Developer",
+        "jobtitle": "Web Developer",
+        "department": "Department",
+        "status": "Offered"
+    },
+    {
+        "id": 3,
+        "no": "3",
+        "image": "avatar-10.jpg",
+        "name": "John Smith",
+        "name1": "Android Developer",
+        "jobtitle": "Android Developer",
+        "department": "Department",
+        "status": "Offered"
+    }
+]

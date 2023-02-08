@@ -1,0 +1,59 @@
+[
+    {
+        "id": 1,
+        "no": "1",
+        "title": "New Year",
+        "holidaydate": "1 Jan 2019",
+        "day": "Sunday"
+
+    },
+    {
+        "id": 2,
+        "no": "2",
+        "title": "Good Friday",
+        "holidaydate": "14 Apr 2019",
+        "day": "Friday"
+    },
+     {
+        "id": 3,
+        "no": "3",
+        "title": "May Day",
+        "holidaydate": "1 May 2019",
+        "day": "Monday"
+    },
+     {
+        "id": 4,
+        "no": "4",
+        "title": "Memorial Day",
+        "holidaydate": "28 May 2019",
+        "day": "Monday"
+    },
+    {
+        "id": 5,
+        "no": "5",
+        "title": "Ramzon",
+        "holidaydate": "26 Jun 2019",
+        "day": "Monday"
+    },
+     {
+        "id": 6,
+        "no": "6",
+        "title": "Bakrid",
+        "holidaydate": "2 Sep 2019",
+        "day": "Saturday"
+    },
+     {
+        "id": 7,
+        "no": "7",
+        "title": "Deepavali",
+        "holidaydate": "18 Oct 2019",
+        "day": "Wednesday"
+    },
+    {
+        "id": 8,
+        "no": "8",
+        "title": "Christmas",
+        "holidaydate": "25 Dec 2019",
+        "day": "Monday"
+    }
+]

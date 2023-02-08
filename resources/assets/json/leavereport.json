@@ -1,0 +1,72 @@
+[
+    {
+        "id": 1,
+        "image": "avatar-02.jpg",
+        "name": "John Doe",
+        "no": "#0001",
+        "date": "20 Dec 2020",
+        "department": "Design",
+        "leavetype1": "Sick Leave",
+        "noofday": "05",
+        "remaining": "08",
+        "totalleave": "20",
+        "leavetype": "12",
+        "leavecarry": "08"
+    },
+    {
+        "id": 2,
+        "image": "avatar-09.jpg",
+        "name": "John Smith",
+        "no": "#003",
+        "date": "22 Dec 2020",
+        "department": "Android Developer",
+        "leavetype1": "Emergency Leave",
+        "noofday": "01",
+        "remaining": "09",
+        "totalleave": "20",
+        "leavetype": "17",
+        "leavecarry": "03"
+    },
+    {
+        "id": 3,
+        "image": "avatar-10.jpg",
+        "name": "Mike Litorus",
+        "no": "#004",
+        "date": "23 Dec 2020",
+        "department": "IOS Developer",
+        "leavetype1": "Sick Leave",
+        "noofday": "15",
+        "remaining": "05",
+        "totalleave": "20",
+        "leavetype": "15",
+        "leavecarry": "05"
+    },
+    {
+        "id": 4,
+        "image": "avatar-05.jpg",
+        "name": "Richard Miles",
+        "no": "#0002",
+        "date": "21 Dec 2020",
+        "department": "Web Developer",
+        "leavetype1": "Parenting Leave",
+        "noofday": "03",
+        "remaining": "08",
+        "totalleave": "20",
+        "leavetype": "12",
+        "leavecarry": "05"
+    },
+    {
+        "id": 5,
+        "image": "avatar-11.jpg",
+        "name": "Wilmer Deluna",
+        "no": "#005",
+        "date": "24 Dec 2020",
+        "department": "Team Leader",
+        "leavetype1": "Sick Leave",
+        "noofday": "10",
+        "remaining": "07",
+        "totalleave": "20",
+        "leavetype": "18",
+        "leavecarry": "2"
+    }
+]

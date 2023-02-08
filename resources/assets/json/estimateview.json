@@ -1,0 +1,47 @@
+[
+    {
+        "id": 1,
+        "no": "1",
+        "item": "Android Application",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+        "unitcost": "$1000",
+        "quantity": "2",
+        "total": "$2000"
+    },
+    {
+        "id": 2,
+        "no": "2",
+        "item": "Ios Application",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+        "unitcost": "$1750",
+        "quantity": "1",
+        "total": "$1750"
+    },
+    {
+        "id": 3,
+        "no": "3",
+        "item": "Codeigniter Project",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+        "unitcost": "$90",
+        "quantity": "3",
+        "total": "$270"
+    },
+    {
+        "id": 4,
+        "no": "4",
+        "item": "Phonegap Project",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+        "unitcost": "#1200",
+        "quantity": "2",
+        "total": "$2400"
+    },
+    {
+        "id": 5,
+        "no": "5",
+        "item": "Website Optimization",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+        "unitcost": "$200",
+        "quantity": "2",
+        "total": "$400"
+    }
+]

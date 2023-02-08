@@ -1,0 +1,47 @@
+[
+    {
+        "id": 1,
+        "image": "avatar-02.jpg",
+        "name": "John Doe",
+        "no1": "#0001",
+        "date": "20 Dec 2020",
+        "department": "Design",
+        "status": "Week off"
+    },
+    {
+        "id": 2,
+        "image": "avatar-09.jpg",
+        "name": "John Smith",
+        "no1": "#003",
+        "date": "20 Dec 2020",
+        "department": "Andoid Developer",
+        "status": "Week off"
+    },
+    {
+        "id": 3,
+        "image": "avatar-10.jpg",
+        "name": "Mike Litorus",
+        "no1": "#004",
+        "date": "20 Dec 2020",
+        "department": "IOS Developer",
+        "status": "Week off"
+    },
+    {
+        "id": 4,
+        "image": "avatar-05.jpg",
+        "name": "Richard Miles",
+        "no1": "#0002",
+        "date": "20 Dec 2020",
+        "department": "Web Developer",
+        "status": "Absent"
+    },
+    {
+        "id": 5,
+        "image": "avatar-11.jpg",
+        "name": "Wilmer Deluna",
+        "no1": "#005",
+        "date": "20 Dec 2020",
+        "department": "Team Leader",
+        "status": "Week Off"
+    }
+]

@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "in": "Punch In at",
+        "time": "10.00 AM."
+    },
+    {
+        "id": 2,
+        "in": "Punch Out at",
+        "time": "11.00 AM."
+    },
+    {
+        "id": 3,
+        "in": "Punch In at",
+        "time": "11.15 AM."
+    },
+    {
+        "id": 4,
+        "in": "Punch Out at",
+        "time": "1.30 AM."
+    },
+    {
+        "id": 5,
+        "in": "Punch In at",
+        "time": "2.00 AM."
+    },
+    {
+        "id": 6,
+        "in": "Punch Out at",
+        "time": "7.30 AM."
+    }
+]

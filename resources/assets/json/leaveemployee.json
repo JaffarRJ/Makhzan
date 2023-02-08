@@ -1,0 +1,90 @@
+[
+    {
+        "id": 1,
+        "image": "avatar-09.jpg",
+        "leavetype": "Casual Leave",
+        "from": "8 Mar 2019",
+        "to": "9 Mar 2019",
+        "noofday": "2 days",
+        "reason": "Going to Hospital",
+        "status": "New",
+        "approvedby": "Richard Miles"
+    },
+    {
+        "id": 2,
+        "image": "avatar-09.jpg",
+        "leavetype": "Casual Leave",
+        "from": "30 Jan 2019",
+        "to": "30 Jan 2019",
+        "noofday": "Second Half",
+        "reason": "Going to Hospital",
+        "status": "New",
+        "approvedby": "Richard Miles"
+    },
+    {
+        "id": 3,
+        "image": "avatar-09.jpg",
+        "leavetype": "Casual Leave",
+        "from": "13 Jan 2019",
+        "to": "14 Jan 2019",
+        "noofday": "2 days",
+        "reason": "Going to Hospital",
+        "status": "Approved",
+        "approvedby": "Richard Miles"
+    },
+    {
+        "id": 4,
+        "image": "avatar-09.jpg",
+        "leavetype": "Casual Leave",
+        "from": "10 Jan 2019",
+        "to": "10 Jan 2019",
+        "noofday": "First Half",
+        "reason": "Going to Hospital",
+        "status": "Declined",
+        "approvedby": "Richard Miles"
+    },
+    {
+        "id": 5,
+        "image": "avatar-09.jpg",
+        "leavetype": "Hospitalisation",
+        "from": "15 Jan 2019",
+        "to": "25 Jan 2019",
+        "noofday": "10 days",
+        "reason": "Going to Hospital",
+        "status": "Approved",
+        "approvedby": "Richard Miles"
+    },
+    {
+        "id": 6,
+        "image": "avatar-09.jpg",
+        "leavetype": "LOP",
+        "from": "24 Feb 2019",
+        "to": "25 Feb 2019",
+        "noofday": "2 days",
+        "reason": "Personnal",
+        "status": "Approved",
+        "approvedby": "Richard Miles"
+    },
+    {
+        "id": 7,
+        "image": "avatar-09.jpg",
+        "leavetype": "Medical Leave",
+        "from": "27 Feb 2019",
+        "to": "27 Feb 2019",
+        "noofday": "1 day",
+        "reason": "Going to Hospital",
+        "status": "Approved",
+        "approvedby": "Richard Miles"
+    },
+    {
+        "id": 8,
+        "image": "avatar-09.jpg",
+        "leavetype": "Paternity Leave",
+        "from": "13 Feb 2019",
+        "to": "17 Feb 2019",
+        "noofday": "5 days",
+        "reason": "Going to Hospital",
+        "status": "Declined",
+        "approvedby": "Richard Miles"
+    }
+]

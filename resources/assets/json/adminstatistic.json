@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "leave": "Today Leave",
+        "percent": "4",
+        "percent1": "/ 65"
+    },
+    {
+        "id": 2,
+        "leave": "Pending Invoice",
+        "percent": "15",
+        "percent1": "/ 92"
+    },
+    {
+        "id": 3,
+        "leave": "Completed Projects",
+        "percent": "85",
+        "percent1": "/ 112"
+    },
+    {
+        "id": 4,
+        "leave": "Open Tickets",
+        "percent": "190",
+        "percent1": "/ 212"
+    },
+    {
+        "id": 5,
+        "leave": "Closed Tickets",
+        "percent": "22",
+        "percent1": "/ 212"
+    }
+]

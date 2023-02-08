@@ -1,0 +1,29 @@
+[
+    {
+        "id": 1,
+        "no": "1",
+        "jobtitle": "Web Developer",
+        "department": "Development",
+        "jobtype": "Full Time",
+        "aptitudetest": "Selected",
+        "scheduleinterview": "Select Your Time Here"
+    },
+    {
+        "id": 2,
+        "no": "2",
+        "jobtitle": "Web Designing",
+        "department": "Development",
+        "jobtype": "Part Time",
+        "aptitudetest": "Selected",
+        "scheduleinterview": "Select Your Time Here"
+    },
+    {
+        "id": 3,
+        "no": "3",
+        "jobtitle": "Web Developer",
+        "department": "Development",
+        "jobtype": "Part Time",
+        "aptitudetest": "Selected",
+        "scheduleinterview": "Select Your Time Here"
+    }
+]

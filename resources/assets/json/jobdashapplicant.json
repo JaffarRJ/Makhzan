@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "no": "1",
+        "image": "avatar-02.jpg",
+        "name": "John Doe",
+        "name1": "Web Designer",
+        "jobtitle": "Web Developer",
+        "department": "Development",
+        "startdate": "3 Mar 2019",
+        "expiredate": "31 May 2019",
+        "jobtype": "Full Time",
+        "status": "Open",
+        "resume": "Download"
+    },
+    {
+        "id": 2,
+        "no": "2",
+        "image": "avatar-09.jpg",
+        "name": "Richard Miles",
+        "name1": "Web Developer",
+        "jobtitle": "Web Designer",
+        "department": "Designing",
+        "startdate": "3 Mar 2019",
+        "expiredate": "31 May 2019",
+        "jobtype": "Part Time",
+        "status": "Closed",
+        "resume": "Download"
+    },
+    {
+        "id": 3,
+        "no": "3",
+        "image": "avatar-10.jpg",
+        "name": "John Smith",
+        "name1": "Android Developer",
+        "jobtitle": "Android Developer",
+        "department": "Android",
+        "startdate": "3 Mar 2019",
+        "expiredate": "31 May 2019",
+        "jobtype": "Internship",
+        "status": "Cancelled",
+        "resume": "Download"
+    }
+]

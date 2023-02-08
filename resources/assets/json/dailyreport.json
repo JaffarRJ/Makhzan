@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "no": "101",
+        "description": "Total Employees"
+    },
+    {
+        "id": 2,
+        "no": "84",
+        "description": "Today Present"
+    },
+    {
+        "id": 3,
+        "no": "12",
+        "description": "Today Absent"
+    },
+    {
+        "id": 4,
+        "no": "5",
+        "description": "Today Left"
+    }
+]

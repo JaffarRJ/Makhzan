@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "day": "Today",
+        "hours": "3.45",
+        "hours1": "/ 8 hrs"
+    },
+    {
+        "id": 2,
+        "day": "This Week",
+        "hours": "28",
+        "hours1": "/ 40 hrs"
+    },
+    {
+        "id": 3,
+        "day": "This Month",
+        "hours": "90",
+        "hours1": "/ 160 hrs"
+    },
+    {
+        "id": 4,
+        "day": "Remaining",
+        "hours": "90",
+        "hours1": "/ 160 hrs"
+    },
+    {
+        "id": 5,
+        "day": "Overtime",
+        "hours": "90/160 hrs",
+        "hours1": "/ 160 hrs"
+    }
+]

@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "no": 1,
+        "design": "Web Designer",
+        "departmentname": "Web Development"
+    },
+    {
+        "id": 2,
+        "no": 2,
+        "design": "Web Developer",
+        "departmentname": "Web Development"
+    },
+    {
+        "id": 3,
+        "no": 3,
+        "design": "Android Designer",
+        "departmentname": "Application Development"
+    },
+    {
+        "id": 4,
+        "no": 4,
+        "design": "IOS Developer",
+        "departmentname": "Application Management"
+    },
+    {
+        "id": 5,
+        "no": 5,
+        "design": "UI Designer",
+        "departmentname": "Application Management"
+    },
+    {
+        "id": 6,
+        "no": 6,
+        "design": "UX Designer",
+        "departmentname": "Application Development"
+    },
+    {
+        "id": 7,
+        "no": 7,
+        "design": "IT Technician",
+        "departmentname": "Application Development"
+    },
+    {
+        "id": 8,
+        "no": 8,
+        "design": "Product Manager",
+        "departmentname": "Application Development"
+    },
+    {
+        "id": 9,
+        "no": 9,
+        "design": "SEO Analyst",
+        "departmentname": "Application Development"
+    },
+    {
+        "id": 10,
+        "no": 10,
+        "design": "Front End Designer",
+        "departmentname": "Application Development"
+    }
+]

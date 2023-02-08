@@ -1,0 +1,74 @@
+[
+    {
+        "id": 1,
+        "image": "avatar-02.jpg",
+        "name": "John Doe",
+        "designation": "Web Designer"
+    },
+    {
+        "id": 2,
+        "image": "avatar-09.jpg",
+        "name": "Richard Miles",
+        "designation": "Web Developer"
+    },
+    {
+        "id": 3,
+        "image": "avatar-10.jpg",
+        "name": "John Smith",
+        "designation": "Android Developer"
+    },
+    {
+        "id": 4,
+        "image": "avatar-05.jpg",
+        "name": "Mike Litorus",
+        "designation": "IOS Developer"
+    },
+    {
+        "id": 5,
+        "image": "avatar-11.jpg",
+        "name": "Wilmer Deluna",
+        "designation": "Team Leader"
+    },
+    {
+        "id": 6,
+        "image": "avatar-12.jpg",
+        "name": "Jeffery Warden",
+        "designation": "Web Developer"
+    },
+    {
+        "id": 7,
+        "image": "avatar-13.jpg",
+        "name": "Bernardo Galaviz",
+        "designation": "Web Developer"
+    },
+    {
+        "id": 8,
+        "image": "avatar-01.jpg",
+        "name": "Lesley Grauer",
+        "designation": "Team Leader"
+    },
+    {
+        "id": 9,
+        "image": "avatar-16.jpg",
+        "name": "Jeffery Lalor",
+        "designation": "Team Leader"
+    },
+    {
+        "id": 10,
+        "image": "avatar-04.jpg",
+        "name": "Loren Gatlin",
+        "designation": "Android Developer"
+    },
+    {
+        "id": 11,
+        "image": "avatar-03.jpg",
+        "name": "Tarah Shrosphire",
+        "designation": "Android Developer"
+    },
+    {
+        "id": 12,
+        "image": "avatar-08.jpg",
+        "name": "Catherine Manseau",
+        "designation": "Android Developer"
+    }
+]

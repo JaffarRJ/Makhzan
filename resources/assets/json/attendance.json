@@ -1,0 +1,52 @@
+[
+    {
+        "id": 1,
+        "image": "avatar-09.jpg",
+        "name": "John Doe"
+    },
+    {
+        "id": 2,
+        "image": "avatar-09.jpg",
+        "name": "Richard Miles"
+    },
+    {
+        "id": 3,
+        "image": "avatar-10.jpg",
+        "name": "John Smith"
+    },
+    {
+        "id": 4,
+        "image": "avatar-05.jpg",
+        "name": "Mike Litorus"
+    },
+    {
+        "id": 5,
+        "image": "avatar-11.jpg",
+        "name": "Wilmer Deluna"
+    },
+    {
+        "id": 6,
+        "image": "avatar-12.jpg",
+        "name": "Jeffrey Warden"
+    },
+    {
+        "id": 7,
+        "image": "avatar-13.jpg",
+        "name": "Bernardo Galaviz"
+    },
+    {
+        "id": 8,
+        "image": "avatar-01.jpg",
+        "name": "Lesley Grauer"
+    },
+    {
+        "id": 9,
+        "image": "avatar-16.jpg",
+        "name": "Jeffery Lalor"
+    },
+    {
+        "id": 10,
+        "image": "avatar-04.jpg",
+        "name": "Loren Gatlin"
+    }
+]

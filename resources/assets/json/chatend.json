@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "image": "avatar-02.jpg",
+        "name": "you",
+        "time": "8:35 am",
+        "description1": "Jeffrey Warden missed the call"
+    },
+    {
+        "id": 2,
+        "image": "avatar-02.jpg",
+        "name": "John Doe",
+        "time": "8:35 am",
+        "description1": "This call has ended"
+    },
+    {
+        "id": 3,
+        "image": "avatar-05.jpg",
+        "name": "Richard Miles",
+        "time": "8:35 am",
+        "description1": "You missed the call"
+    },
+    {
+        "id": 4,
+        "image": "avatar-02.jpg",
+        "name": "you",
+        "time": "8:35 am",
+        "description1": "Calling John Smith ..."
+    }
+]

@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "create": "Created :",
+        "createddate": "Feb, 04, 2016",
+        "category": "Category:",
+        "categorydetail": "category 1,",
+        "categorydetail1": "category 2",
+        "update": "Last Updated:",
+        "updatedetail": "April, 15, 2016",
+        "comment": "Comments :",
+        "commentno": "5",
+        "view": "Views",
+        "viewno": "1198"
+    }
+]

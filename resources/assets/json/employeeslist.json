@@ -1,0 +1,79 @@
+[
+    {
+        "id": 1,
+        "image": "avatar-02.jpg",
+        "name": "Bernardo Galaviz",
+        "name1": "Web Developer",
+        "employeeid": "FT-0007",
+        "email": "bernardogalaviz@example.com",
+        "mobile": "9876543210",
+        "joindate": "1 Jan 2013",
+        "role": "Web Developer"
+    },
+    {
+        "id": 2,
+        "image": "avatar-09.jpg",
+        "name": "Jeffery Warden",
+        "name1": "Web Developer",
+        "employeeid": "FT-0006",
+        "email": "jeffreywarden@example.com",
+        "mobile": "9876543210",
+        "joindate": "16 Jun 2013",
+        "role": "Web Developer"
+    },
+    {
+        "id": 3,
+        "image": "avatar-10.jpg",
+        "name": "John Doe",
+        "name1": "Web Designer",
+        "employeeid": "FT-0001",
+        "email": "johndoe@example.com",
+        "mobile": "9876543210",
+        "joindate": "1 Jan 2013",
+        "role": "Web Developer"
+    },
+    {
+        "id": 4,
+        "image": "avatar-05.jpg",
+        "name": "John Smith",
+        "name1": "Android Developer",
+        "employeeid": "FT-0003",
+        "email": "johnsmith@example.com",
+        "mobile": "9876543210",
+        "joindate": "1 Apr 2014",
+        "role": "Web Developer"
+    },
+    {
+        "id": 5,
+        "image": "avatar-11.jpg",
+        "name": "Mike Litorus",
+        "name1": "IOS Developer",
+        "employeeid": "FT-0004",
+        "email": "mikelitorus@example.com",
+        "mobile": "9876543210",
+        "joindate": "1 Apr 2014",
+        "role": "Web Developer"
+    },
+    {
+        "id": 6,
+        "image": "avatar-12.jpg",
+        "name": "Richard Miles",
+        "name1": "Web Developer",
+        "employeeid": "FT-0002",
+        "email": "richardmiles@example.com",
+        "mobile": "9876543210",
+        "joindate": "18 Mar 2014",
+        "role": "Web Developer"
+    },
+    {
+        "id": 7,
+        "image": "avatar-13.jpg",
+        "name": "Wilmer Deluna",
+        "name1": "Team Leader",
+        "employeeid": "FT-0005",
+        "email": "wilmerdeluna@example.com",
+        "mobile": "9876543210",
+        "joindate": "22 May 2014",
+        "role": "Web Developer"
+    }
+]

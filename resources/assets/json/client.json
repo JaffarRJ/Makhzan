@@ -1,0 +1,58 @@
+[
+    {
+        "id": 1,
+        "image": "avatar-19.jpg",
+        "name": "Global Technologies",
+        "name1": "Barry Cuda",
+        "owner": "CEO"
+    },
+    {
+        "id": 2,
+        "image": "avatar-29.jpg",
+        "name": "Delta Infotech",
+        "name1": "Tressa Wexler",
+        "owner": "Manager"
+    },
+    {
+        "id": 3,
+        "image": "avatar-07.jpg",
+        "name": "Cream Inc",
+        "name1": "Ruby Bartlett",
+        "owner": "CEO"
+    },
+    {
+        "id": 4,
+        "image": "avatar-06.jpg",
+        "name": "Wellware Company",
+        "name1": "Misty Tison",
+        "owner": "CEO"
+    },
+    {
+        "id": 5,
+        "image": "avatar-14.jpg",
+        "name": "Mustang Technologies",
+        "name1": "Daniel Deacon",
+        "owner": "CEO"
+    },
+    {
+        "id": 6,
+        "image": "avatar-18.jpg",
+        "name": "International Software Inc",
+        "name1": "Walter Weaver",
+        "owner": "CEO"
+    },
+    {
+        "id": 7,
+        "image": "avatar-28.jpg",
+        "name": "Mercury Software Inc",
+        "name1": "Amanda Warren",
+        "owner": "CEO"
+    },
+    {
+        "id": 8,
+        "image": "avatar-13.jpg",
+        "name": "Carlson Tech",
+        "name1": "Betty Carlson",
+        "owner": "CEO"
+    }
+]

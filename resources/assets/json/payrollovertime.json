@@ -1,0 +1,17 @@
+[
+    {
+        "id": 1,
+        "name": "Normal day OT 1.5x",
+        "rate": "Hourly 1.5"
+    },
+    {
+        "id": 2,
+        "name": "Public holiday OT 3.0x",
+        "rate": "Hourly 3"
+    },
+    {
+        "id": 3,
+        "name": "Rest day OT 2.0x",
+        "rate": "Hourly 2"
+    }
+]

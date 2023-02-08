@@ -1,0 +1,112 @@
+[
+    {
+        "id": 1,
+        "assetuser": "Bernardo Galaviz",
+        "assetname": "Dell Laptop",
+        "assetid": "#AST-0007",
+        "purchasedate": "5 Jan 2019",
+        "warrenty": "12 Months",
+        "warrentyend": "5 Jan 2019",
+        "amount": "$1215",
+        "status": "Pending"
+    },
+    {
+        "id": 2,
+        "assetuser": "Catherine Manseau",
+        "assetname": "Canon Portable Printer",
+        "assetid": "#AST-0012",
+        "purchasedate": "14 Jan 2019",
+        "warrenty": "12 Months",
+        "warrentyend": "14 Jan 2019",
+        "amount": "$2500",
+        "status": "Returned"
+    },
+    {
+        "id": 3,
+        "assetuser": "Jeffery Lalor",
+        "assetname": "Canon Portable Printer",
+        "assetid": "#AST-0009",
+        "purchasedate": "14 Jan 2019",
+        "warrenty": "12 Months",
+        "warrentyend": "14 Jan 2019",
+        "amount": "$2500",
+        "status": "Returned"
+    },
+    {
+        "id": 4,
+        "assetuser": "Jeffery Warden",
+        "assetname": "Canon Portable Printer",
+        "assetid": "#AST-0006",
+        "purchasedate": "14 Jan 2019",
+        "warrenty": "12 Months",
+        "warrentyend": "14 Jan 2019",
+        "amount": "$2500",
+        "status": "Returned"
+    },
+    {
+        "id": 5,
+        "assetuser": "John Doe",
+        "assetname": "Seagate Harddisk",
+        "assetid": "#AST-0002",
+        "purchasedate": "14 Jan 2019",
+        "warrenty": "12 Months",
+        "warrentyend": "14 Jan 2019",
+        "amount": "$300",
+        "status": "Approved"
+    },
+    {
+        "id": 6,
+        "assetuser": "John Smith",
+        "assetname": "Canon Portable Printer",
+        "assetid": "#AST-0003",
+        "purchasedate": "14 Jan 2019",
+        "warrenty": "12 Months",
+        "warrentyend": "14 Jan 2019",
+        "amount": "$2500",
+        "status": "Returned"
+    },
+    {
+        "id": 7,
+        "assetuser": "Lesley Grauer",
+        "assetname": "Seagate Harddisk",
+        "assetid": "#AST-0008",
+        "purchasedate": "14 Jan 2019",
+        "warrenty": "12 Months",
+        "warrentyend": "14 Jan 2019",
+        "amount": "$300",
+        "status": "Approved"
+    },
+    {
+        "id": 8,
+        "assetuser": "Loren Gatlin",
+        "assetname": "Dell Laptop",
+        "assetid": "#AST-0010",
+        "purchasedate": "5 Jan 2019",
+        "warrenty": "12 Months",
+        "warrentyend": "5 Jan 2019",
+        "amount": "$1215",
+        "status": "Pending"
+    },
+    {
+        "id": 9,
+        "assetuser": "Mike Litorus",
+        "assetname": "Dell Laptop",
+        "assetid": "#AST-0004",
+        "purchasedate": "5 Jan 2019",
+        "warrenty": "12 Months",
+        "warrentyend": "5 Jan 2019",
+        "amount": "$1215",
+        "status": "Pending"
+    },
+    {
+        "id": 10,
+        "assetuser": "Richard Miles",
+        "assetname": "Dell Laptop",
+        "assetid": "#AST-0001",
+        "purchasedate": "5 Jan 2019",
+        "warrenty": "12 Months",
+        "warrentyend": "6 Jan 2019",
+        "amount": "$1215",
+        "status": "Pending"
+    }
+]

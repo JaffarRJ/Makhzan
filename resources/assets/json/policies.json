@@ -1,0 +1,18 @@
+[
+    {
+        "id": 1,
+        "no": "1",
+        "policyname": "Leave Policy",
+        "department": "All Departments",
+        "description": "Lorem ipsum dollar",
+        "created": "19 Feb 2019"
+    },
+    {
+        "id": 2,
+        "no": "2",
+        "policyname": "Permission Policy",
+        "department": "Marketing",
+        "description": "Lorem ipsum dollar",
+        "created": "20 Feb 2019"
+    }
+]

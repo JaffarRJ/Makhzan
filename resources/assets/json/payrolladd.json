@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "name": "Leave balance amount",
+        "category": "Monthly remuneration",
+        "default": "$5"
+    },
+    {
+        "id": 2,
+        "name": "Arrears of salary",
+        "category": "Additional remuneration",
+        "default": "$8"
+    },
+    {
+        "id": 3,
+        "name": "Gratuity",
+        "category": "Monthly remuneration",
+        "default": "$20"
+    }
+]

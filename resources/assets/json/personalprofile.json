@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "passport": "Passport No.",
+        "passportno": "9876543210",
+        "passportexp": "Passport Exp Date.",
+        "passportexpno": "9876543210",
+        "tel": "Tel",
+        "telno": "9876543210",
+        "nation": "Nationality",
+        "nationdetail": "Indian",
+        "religion": "Religion",
+        "religiondetail": "Christian",
+        "married": "Marital status",
+        "marrieddetail": "Married",
+        "employment": "Employment of spouse",
+        "employmentno": "No",
+        "children": "No. of children",
+        "childrenno": "2"
+
+    }
+]

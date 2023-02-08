@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "no": "110",
+        "jobtype": "Jobs"
+    },
+    {
+        "id": 2,
+        "no": "40",
+        "jobtype": "job Seekers"
+    },
+    {
+        "id": 3,
+        "no": "374",
+        "jobtype": "Employees"
+    },
+    {
+        "id": 4,
+        "no": "220",
+        "jobtype": "Applications"
+    }
+]

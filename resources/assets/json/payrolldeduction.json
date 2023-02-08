@@ -1,0 +1,17 @@
+[
+    {
+        "id": 1,
+        "name": "Absent amount",
+        "category": "$12"
+    },
+    {
+        "id": 2,
+        "name": "Advance",
+        "category": "$7"
+    },
+    {
+        "id": 3,
+        "name": "Unpaid leave",
+        "category": "$3"
+    }
+]

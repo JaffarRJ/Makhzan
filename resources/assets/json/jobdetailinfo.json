@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "type": "JOB TYPE",
+        "typedetail": "Full Time",
+        "sal": "SALARY",
+        "saldetail": "$32k - $38k",
+        "exp": "EXPERIENCE",
+        "expdetail": "2 Years",
+        "vaccany": "VACANCY",
+        "vacancydetail": "5",
+        "loc": "LOCATION",
+        "locdetail": "Dreamguys Technologies",
+        "locadd": "3864 Quiet Valley Lane,",
+        "locplace": "Sherman Oaks,",
+        "locplace1": "California,91403",
+        "pho": "918-978-7102",
+        "mail": "danielporter@example.com",
+        "website": "https://www.example.com",
+        "websitedesc": "Application ends in 2d 7h 6m"
+
+    }
+]

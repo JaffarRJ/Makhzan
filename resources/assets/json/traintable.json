@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "no": "1",
+        "type": "Node Training",
+        "description": "Lorem ipsum dollar",
+        "status": "Inactive"
+    },
+    {
+        "id": 2,
+        "no": "2",
+        "type": "Git Training",
+        "description": "Lorem ipsum dollar",
+        "status": "Active"
+    },
+    {
+        "id": 3,
+        "no": "3",
+        "type": "Swift Training",
+        "description": "Lorem ipsum dollar",
+        "status": "Inactive"
+    },
+    {
+        "id": 4,
+        "no": "4",
+        "type": "Html Training",
+        "description": "Lorem ipsum dollar",
+        "status": "Inactive"
+    }
+]

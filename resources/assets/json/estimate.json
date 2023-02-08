@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "estimateno": "EST-0001",
+        "client": "Global Technologies",
+        "estimatedate": "11 Mar 2019",
+        "expirydate": "17 Mar 2019",
+        "amount": "$2099",
+        "status": "Accepted"
+    },
+    {
+        "id": 2,
+        "estimateno": "EST-0002",
+        "client": "Delta Infotech",
+        "estimatedate": "11 Mar 2019",
+        "expirydate": "17 Mar 2019",
+        "amount": "$2099",
+        "status": "Declined"
+    },
+    {
+        "id": 3,
+        "estimateno": "EST-0003",
+        "client": "Cream Inc",
+        "estimatedate": "11 Mar 2019",
+        "expirydate": "17 Mar 2019",
+        "amount": "$2099",
+        "status": "Sent"
+    },
+    {
+        "id": 4,
+        "estimateno": "EST-0004",
+        "client": "International Software Inc",
+        "estimatedate": "11 Mar 2019",
+        "expirydate": "17 Mar 2019",
+        "amount": "$2099",
+        "status": "Expired"
+    }
+]

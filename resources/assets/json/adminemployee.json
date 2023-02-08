@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "new": "New Employees",
+        "percent": "+10%",
+        "newno": "10",
+        "describe": "Overall Employees 218"
+    },
+    {
+        "id": 2,
+        "new": "Earnings",
+        "percent": "+12.5%",
+        "newno": "$1,42,300",
+        "describe": "Previous Month $1,15,852"
+    },
+    {
+        "id": 3,
+        "new": "Expenses",
+        "percent": "-2.8%",
+        "newno": "$8,500",
+        "describe": "Previous Month $7,500"
+    },
+    {
+        "id": 4,
+        "new": "Profit",
+        "percent": "-75%",
+        "newno": "$1,12,000",
+        "describe": "Previous Month $1,42,000"
+    }
+]
