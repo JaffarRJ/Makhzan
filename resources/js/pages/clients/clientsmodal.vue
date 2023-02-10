@@ -33,15 +33,15 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label class="col-form-label">Confirm Password</label>
-                        <input class="form-control" type="password" v-model="user.confirm_password">
+                        <input class="form-control" type="confirm_password" v-model="user.password_confirmation">
                       </div>
                     </div>
                       <div class="col-md-6">
                           <label class="col-form-label">Role <span class="text-danger">*</span></label>
 
-                          <select class="select floating"  >
-                              <option>Select Month</option>
-                              <option v-for="role in role.roles" :key="role.id">{{role.name}}</option>
+                          <select class="form-control" type="role" v-model="user.role_id" >
+                              <option class="select" :value="0">Select Roles</option>
+                              <option v-for="role in getRoles" :value="role.id" :key="role.id">{{role.name}}</option>
                           </select>
                       </div>
                   </div>
@@ -150,28 +150,43 @@
 
 <script>
     export default {
-        data() {
+        data:function() {
             return {
                 user: {
                     name:"",
                     email:"",
+                    role_id:"",
                     password:"",
-                    confirm_password:"",
-                }
+                    password_confirmation:"",
+                },
+                // getRoles:{}
             }
+        },mounted() {
+            this.setroles()
+
         },
         methods: {
             addUser() {
                 console.log(this.user);
-                this.axios
-                    .post('http://127.0.0.1:8000/api/admin/user/store', this.user)
+                this.axios.post('http://127.0.0.1:8000/api/admin/user/store', this.user)
                     .then(response => (
                         console.log(response)
                         // this.$router.push({ name: 'home' })
                     ))
                     .catch(err => console.log(err))
                     .finally(() => this.loading = false)
+            },
+            setroles() {
+                this.axios.get(`http://127.0.0.1:8000/api/admin/user/role/listing`)
+                    .then((response) => {
+                        this.getRoles = response.data.data;
+                        console.log(this.getRoles)})
+
+                        // this.$router.push({ name: 'home' })
+                    .catch(err => console.log(err))
+                    .finally(() => this.loading = false)
             }
+
         }
     }
 </script>

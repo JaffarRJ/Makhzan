@@ -19,6 +19,40 @@
         }
     ],
     "paths": {
+        "/api/admin/role/listing": {
+            "post": {
+                "tags": [
+                    "admin,role,listing"
+                ],
+                "summary": "role",
+                "description": "",
+                "operationId": "roles-listing",
+                "parameters": [
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "Search",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
         "/api/admin/user/listing": {
             "post": {
                 "tags": [
@@ -221,6 +255,29 @@
                         }
                     }
                 ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/user/role/listing": {
+            "get": {
+                "tags": [
+                    "admin,user,role,listing"
+                ],
+                "summary": "user",
+                "description": "",
+                "operationId": "roleListing",
                 "responses": {
                     "200": {
                         "description": "Successful operation"

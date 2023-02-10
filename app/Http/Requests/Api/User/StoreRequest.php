@@ -25,8 +25,9 @@ class StoreRequest extends BaseRequest
     {
         return [
             'name' => 'required',
-            'role_id' => 'required|array',
-            'role_id.*' => 'required|exists:roles,id',
+//            'role_id' => 'required|array',
+            'role_id' => 'required|exists:roles,id',
+//            'role_id.*' => 'required|exists:roles,id',
             'email' => 'required|email:rfc,dns|unique:users,email',
             'password' => 'required|confirmed'
         ];

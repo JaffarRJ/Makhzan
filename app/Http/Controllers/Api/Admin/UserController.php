@@ -8,6 +8,7 @@ use App\Http\Requests\Api\User\DeleteRequest;
 use App\Http\Requests\Api\User\StoreRequest;
 use App\Http\Requests\Api\User\UpdateRequest;
 use App\Jobs\SendMailJob;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
@@ -17,10 +18,11 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-    private $user;
+    private $user, $role;
     public function __construct()
     {
         $this->user = new User();
+        $this->role = new Role();
     }
     /**
      * @OA\Post(
@@ -61,7 +63,6 @@ class UserController extends Controller
                 searchTable($q, $inputs['search'], ['name'], 'roles');
             });
         }
-        $roles = Role::all();
         $users = $query->with('roles')->orderBy('name', 'ASC')->paginate(PAGINATE);
         return successWithData(GENERAL_FETCHED_MESSAGE, $users);
     }
@@ -296,6 +297,43 @@ class UserController extends Controller
             }
             DB::commit();
             return success(GENERAL_DELETED_MESSAGE);
+        } catch (QueryException $e) {
+            DB::rollBack();
+            return error($e->getMessage(), ERROR_500);
+        } catch (Exception $e) {
+            DB::rollBack();
+            return error($e->getMessage(), ERROR_500);
+        }
+    }
+
+    /**
+     * @OA\GET(
+     *      path="/api/admin/user/role/listing",
+     *      operationId="roleListing",
+     *      tags={"admin,user,role,listing"},
+     *      summary="user",
+     *       security={
+     *           {"bearerAuth": {}}
+     *       },
+     *      description="",
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *       ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      )
+     *     )
+     */
+    public function roleListing(Request $request)
+    {
+        try {
+            DB::beginTransaction();
+            $inputs = $request->all();
+            $roles = $this->role->newQuery()->get();
+            DB::commit();
+            return successWithData(GENERAL_FETCHED_MESSAGE, $roles);
         } catch (QueryException $e) {
             DB::rollBack();
             return error($e->getMessage(), ERROR_500);
