@@ -51,8 +51,8 @@
                         <div class="dropdown dropdown-action">
                           <a href="javascript:void(0)" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
                           <div class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#edit_client"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-                            <a class="dropdown-item" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#delete_client" @click="deleteClient(item.id)"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+                            <a class="dropdown-item" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#edit_client" @click="editClient(item.id)"><i class="fa fa-pencil m-r-5"></i> Edit</a>
+                            <a class="dropdown-item" href="javascript:void(0)" @click="deleteClient(item.id)"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
                           </div>
                         </div>
                       </td>
@@ -97,18 +97,21 @@ axios.defaults.withCredentials = true;
           addClient() {
               this.axios.post('api/admin/user/store', this.product).then(response => (this.$router.push({name: 'home'})))
                   .catch(err => console.log(err))
-                  .finally(() => this.loadin = false)
-          },
-          updateClient() {
-              this.axios.patch(`api/admin/user/update/${this.$route.params.id}`, this.product).then((res) => {
-                  this.$router.push({name: 'home'});
-              });
+                  .finally(() => this.loading = false)
           },
           deleteClient(id) {
-              this.axios.delete('api/admin/user/delete/${id}').then(response => {
-                  let i = this.products.map(data => data.id).indexOf(id);
-                  this.products.splice(i, 1)
-              });
+              if(confirm("Are you sure to delete this User ?")) {
+                  this.axios.post(   `api/admin/user/delete/`,{'id': id}).then(response => {
+                      // let i = this.clientlist.map(data => data.id).indexOf(id);
+                      // this.clientlist.splice(i, 1)
+                  });
+              }
+          },
+          editClient(id) {
+                  this.axios.post(   `api/admin/user/edit/`,{'id': id}).then(response => {
+                      // let i = this.clientlist.map(data => data.id).indexOf(id);
+                      // this.clientlist.splice(i, 1)
+                  });
           }, loadImg(imgPath) {
               return images('./' + imgPath).default
           }
