@@ -38,9 +38,8 @@
                     </div>
                       <div class="col-md-6">
                           <label class="col-form-label">Role <span class="text-danger">*</span></label>
-
                           <select class="form-control" type="role" v-model="user.role_id" >
-                              <option class="select" :value="0">Select Roles</option>
+                              <option selected="selected" :value="0">Select Roles</option>
                               <option v-for="role in getRoles" :value="role.id" :key="role.id">{{role.name}}</option>
                           </select>
                       </div>
@@ -94,21 +93,9 @@
                     </div>
                       <div class="col-md-6">
                           <label class="col-form-label">Role <span class="text-danger">*</span></label>
-
-                          <select class="select floating">
-                              <option>Select Month</option>
-                              <option>Jan</option>
-                              <option>Feb</option>
-                              <option>Mar</option>
-                              <option>Apr</option>
-                              <option>May</option>
-                              <option>Jun</option>
-                              <option>Jul</option>
-                              <option>Aug</option>
-                              <option>Sep</option>
-                              <option>Oct</option>
-                              <option>Nov</option>
-                              <option>Dec</option>
+                          <select class="form-control" type="role" v-model="user.role_id" >
+                              <option selected="selected" :value="0">Select Roles</option>
+                              <option v-for="role in getRoles" :value="role.id" :key="role.id">{{role.name}}</option>
                           </select>
                       </div>
                   </div>
@@ -148,6 +135,8 @@
         <!-- /Delete Client Modal -->
 </template>
 
+
+
 <script>
     export default {
         data:function() {
@@ -168,13 +157,18 @@
         methods: {
             addUser() {
                 console.log(this.user);
-                this.axios.post('http://127.0.0.1:8000/api/admin/user/store', this.user)
+                this.axios.post('api/admin/user/store', this.user)
                     .then(response => (
                         console.log(response)
                         // this.$router.push({ name: 'home' })
                     ))
+                $("#add_client").modal('hide')
                     .catch(err => console.log(err))
                     .finally(() => this.loading = false)
+            },updateClient() {
+                this.axios.patch(`api/admin/user/update/${this.$route.params.id}`, this.user).then((res) => {
+                    this.$router.push({name: 'home'});
+                });
             },
             setroles() {
                 this.axios.get(`http://127.0.0.1:8000/api/admin/user/role/listing`)
@@ -182,11 +176,10 @@
                         this.getRoles = response.data.data;
                         console.log(this.getRoles)})
 
-                        // this.$router.push({ name: 'home' })
+                    // this.$router.push({ name: 'home' })
                     .catch(err => console.log(err))
                     .finally(() => this.loading = false)
             }
-
         }
     }
 </script>
