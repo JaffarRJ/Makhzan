@@ -7,6 +7,7 @@ use App\Http\Requests\Api\Auth\RegisterRequest;
 use App\Http\Requests\Api\User\DeleteRequest;
 use App\Http\Requests\Api\User\StoreRequest;
 use App\Http\Requests\Api\User\UpdateRequest;
+use App\Http\Requests\Api\User\DetailRequest;
 use App\Jobs\SendMailJob;
 use App\Models\Role;
 use App\Models\User;
@@ -25,7 +26,7 @@ class UserController extends Controller
         $this->role = new Role();
     }
     /**
-     * @OA\Post(
+     * @OA\GET(
      *      path="/api/admin/user/listing",
      *      operationId="listing",
      *      tags={"admin,user,listing"},
@@ -65,6 +66,44 @@ class UserController extends Controller
         }
         $users = $query->with('roles')->orderBy('name', 'ASC')->paginate(PAGINATE);
         return successWithData(GENERAL_FETCHED_MESSAGE, $users);
+    }
+
+    /**
+     * @OA\GET(
+     *      path="/api/admin/user/detail",
+     *      operationId="detail",
+     *      tags={"admin,user,detail"},
+     *      summary="user",
+     *       security={
+     *           {"bearerAuth": {}}
+     *       },
+     *      description="",
+     *      @OA\Parameter(
+     *          name="id",
+     *          description="Id",
+     *          required=true,
+     *           in="query",
+     *          @OA\Schema(
+     *              type="string"
+     *          )
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *       ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      )
+     *     )
+     */
+    public function detail(DetailRequest $request)
+    {
+        $inputs = $request->all();
+        $user = $this->user->newQuery()
+            ->with('roles')
+            ->whereId($inputs['id'])->first();
+        return successWithData(GENERAL_FETCHED_MESSAGE, $user);
     }
 
     /**
