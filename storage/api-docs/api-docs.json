@@ -54,7 +54,7 @@
             }
         },
         "/api/admin/user/listing": {
-            "post": {
+            "get": {
                 "tags": [
                     "admin,user,listing"
                 ],
@@ -67,6 +67,40 @@
                         "in": "query",
                         "description": "Search",
                         "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/user/detail": {
+            "get": {
+                "tags": [
+                    "admin,user,detail"
+                ],
+                "summary": "user",
+                "description": "",
+                "operationId": "detail",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "Id",
+                        "required": true,
                         "schema": {
                             "type": "string"
                         }
