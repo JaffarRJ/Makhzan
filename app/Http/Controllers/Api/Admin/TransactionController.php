@@ -13,7 +13,6 @@ use App\Http\Requests\Api\Transaction\UpdateRequest;
 use App\Models\Transaction;
 use Exception;
 use Illuminate\Database\QueryException;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class TransactionController extends Controller
