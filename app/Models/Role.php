@@ -10,7 +10,9 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Role extends Model
 {
     use HasFactory;
-
+    protected $fillable = [
+        'name'
+    ];
     /**
      * Get all of the users for the Role
      *
