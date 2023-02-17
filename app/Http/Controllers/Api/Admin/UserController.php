@@ -7,8 +7,11 @@ use App\Http\Requests\Api\User\DeleteRequest;
 use App\Http\Requests\Api\User\StoreRequest;
 use App\Http\Requests\Api\User\UpdateRequest;
 use App\Http\Requests\Api\User\DetailRequest;
+use App\Http\Requests\Api\User\UpdateIsActiveRequest;
+use App\Http\Requests\Api\User\UpdateIsShowRequest;
 use App\Models\Role;
 use App\Models\User;
+use Exception;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -178,7 +181,7 @@ class UserController extends Controller
             $user->password = Hash::make($inputs['password']);
             if (!$user->save()) {
                 DB::rollback();
-                return errorResponse(GENERAL_ERROR_MESSAGE);
+                return error(GENERAL_ERROR_MESSAGE, ERROR_400);
             }
             $user->roles()->sync($inputs['role_id']);
             DB::commit();
@@ -277,7 +280,7 @@ class UserController extends Controller
 //            $user->password = Hash::make($inputs['password']);
             if (!$user->save()) {
                 DB::rollback();
-                return errorResponse(GENERAL_ERROR_MESSAGE);
+                return error(GENERAL_ERROR_MESSAGE, ERROR_400);
             }
             $user->roles()->sync($inputs['role_id']);
             DB::commit();
@@ -329,7 +332,7 @@ class UserController extends Controller
             $user->roles()->detach();
             if (!$user->delete()) {
                 DB::rollback();
-                return errorResponse(GENERAL_ERROR_MESSAGE);
+                return error(GENERAL_ERROR_MESSAGE, ERROR_400);
             }
             DB::commit();
             return success(GENERAL_DELETED_MESSAGE);
@@ -376,6 +379,60 @@ class UserController extends Controller
         } catch (Exception $e) {
             DB::rollBack();
             return error($e->getMessage(), ERROR_500);
+        }
+    }
+
+    public function UpdateIsActiveRequest(UpdateIsActiveRequest $request)
+    {
+        try {
+            DB::beginTransaction();
+            $inputs = $request->all();
+            $user = $this->user->newQuery()->where('id', $inputs['id'])->first();
+            if($user->is_active == true || $user->is_active == 1)
+            {
+                $user->is_active = 0;
+            }else{
+                $user->is_active = 1;
+            }
+            if (!$user->save()) {
+                DB::rollback();
+                return error(GENERAL_ERROR_MESSAGE, ERROR_400);
+            }
+            DB::commit();
+            return success(GENERAL_UPDATED_MESSAGE);
+        } catch (QueryException $e) {
+            DB::rollBack();
+            return error(GENERAL_ERROR_MESSAGE, ERROR_500);
+        } catch (Exception $e) {
+            DB::rollBack();
+            return error(GENERAL_ERROR_MESSAGE, ERROR_500);
+        }
+    }
+
+    public function UpdateIsShowRequest(UpdateIsShowRequest $request)
+    {
+        try {
+            DB::beginTransaction();
+            $inputs = $request->all();
+            $user = $this->user->newQuery()->where('id', $inputs['id'])->first();
+            if($user->is_show == true || $user->is_show == 1)
+            {
+                $user->is_show = 0;
+            }else{
+                $user->is_show = 1;
+            }
+            if (!$user->save()) {
+                DB::rollback();
+                return error(GENERAL_ERROR_MESSAGE, ERROR_400);
+            }
+            DB::commit();
+            return success(GENERAL_UPDATED_MESSAGE);
+        } catch (QueryException $e) {
+            DB::rollBack();
+            return error(GENERAL_ERROR_MESSAGE, ERROR_500);
+        } catch (Exception $e) {
+            DB::rollBack();
+            return error(GENERAL_ERROR_MESSAGE, ERROR_500);
         }
     }
 }

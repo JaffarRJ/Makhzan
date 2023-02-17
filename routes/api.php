@@ -1,11 +1,19 @@
 <?php
 
+use App\Http\Controllers\Api\Admin\AccountController;
+use App\Http\Controllers\Api\Admin\AccountSubAccountController;
+use App\Http\Controllers\Api\Admin\EmployeeController;
+use App\Http\Controllers\Api\Admin\PartyAccountTransactionController;
+use App\Http\Controllers\Api\Admin\PartyController;
+use App\Http\Controllers\Api\Admin\PartyTransactionController;
 use App\Http\Controllers\Api\Auth\AuthController;
 use App\Http\Controllers\Api\Auth\ForgetController;
 use App\Http\Controllers\Api\Auth\RegisterController;
 use App\Http\Controllers\Api\User\ProfileController;
 use App\Http\Controllers\Api\Admin\UserController;
 use App\Http\Controllers\Api\Admin\RoleController;
+use App\Http\Controllers\Api\Admin\SubAccountController;
+use App\Http\Controllers\Api\Admin\TransactionController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -54,11 +62,96 @@ Route::middleware(['auth:sanctum'])->prefix('admin')->group(function () {
             Route::post('store', 'store');
             Route::post('update', 'update');
             Route::post('delete', 'delete');
+            Route::post('updateIsActive', 'updateIsActive');
+            Route::post('updateIsShow', 'updateIsShow');
+        });
+    });
+    Route::prefix('transaction')->group(function () {
+        Route::controller(TransactionController::class)->group(function () {
+            Route::get('listing', 'listing');
+            Route::get('detail', 'detail');
+            Route::post('store', 'store');
+            Route::post('update', 'update');
+            Route::post('delete', 'delete');
+            Route::post('updateIsActive', 'updateIsActive');
+            Route::post('updateIsShow', 'updateIsShow');
+        });
+    });
+    Route::prefix('party')->group(function () {
+        Route::controller(PartyController::class)->group(function () {
+            Route::get('listing', 'listing');
+            Route::get('detail', 'detail');
+            Route::post('store', 'store');
+            Route::post('update', 'update');
+            Route::post('delete', 'delete');
+            Route::post('updateIsActive', 'updateIsActive');
+            Route::post('updateIsShow', 'updateIsShow');
+        });
+    });
+    Route::prefix('account')->group(function () {
+        Route::controller(AccountController::class)->group(function () {
+            Route::get('listing', 'listing');
+            Route::get('detail', 'detail');
+            Route::post('store', 'store');
+            Route::post('update', 'update');
+            Route::post('delete', 'delete');
+            Route::post('updateIsActive', 'updateIsActive');
+            Route::post('updateIsShow', 'updateIsShow');
+        });
+    });
+    Route::prefix('party_transaction')->group(function () {
+        Route::controller(PartyTransactionController::class)->group(function () {
+            Route::get('listing', 'listing');
+            Route::get('detail', 'detail');
+            Route::post('store', 'store');
+            Route::post('update', 'update');
+            Route::post('delete', 'delete');
+            Route::post('updateIsActive', 'updateIsActive');
+            Route::post('updateIsShow', 'updateIsShow');
+        });
+    });
+    Route::prefix('party_account_transaction')->group(function () {
+        Route::controller(PartyAccountTransactionController::class)->group(function () {
+            Route::get('listing', 'listing');
+            Route::get('detail', 'detail');
+            Route::post('store', 'store');
+            Route::post('update', 'update');
+            Route::post('delete', 'delete');
+            Route::post('updateIsActive', 'updateIsActive');
+            Route::post('updateIsShow', 'updateIsShow');
+        });
+    });
+    Route::prefix('sub_account')->group(function () {
+        Route::controller(SubAccountController::class)->group(function () {
+            Route::get('listing', 'listing');
+            Route::get('detail', 'detail');
+            Route::post('store', 'store');
+            Route::post('update', 'update');
+            Route::post('delete', 'delete');
+            Route::post('updateIsActive', 'updateIsActive');
+            Route::post('updateIsShow', 'updateIsShow');
+        });
+    });
+    Route::prefix('account_sub_account')->group(function () {
+        Route::controller(AccountSubAccountController::class)->group(function () {
+            Route::get('listing', 'listing');
+            Route::get('detail', 'detail');
+            Route::post('store', 'store');
+            Route::post('update', 'update');
+            Route::post('delete', 'delete');
+            Route::post('updateIsActive', 'updateIsActive');
+            Route::post('updateIsShow', 'updateIsShow');
         });
     });
     Route::prefix('role')->group(function () {
         Route::controller(RoleController::class)->group(function () {
             Route::get('listing', 'listing');
+            Route::get('detail', 'detail');
+            Route::post('store', 'store');
+            Route::post('update', 'update');
+            Route::post('delete', 'delete');
+            Route::post('updateIsActive', 'updateIsActive');
+            Route::post('updateIsShow', 'updateIsShow');
         });
     });
 });
