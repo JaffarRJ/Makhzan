@@ -19,804 +19,6 @@
         }
     ],
     "paths": {
-        "/api/admin/account/listing": {
-            "get": {
-                "tags": [
-                    "admin,account,listing"
-                ],
-                "summary": "account",
-                "description": "",
-                "operationId": "account-listing",
-                "responses": {
-                    "200": {
-                        "description": "Successful operation"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/admin/account/detail": {
-            "get": {
-                "tags": [
-                    "admin,account,detail"
-                ],
-                "summary": "account",
-                "description": "",
-                "operationId": "account-detail",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "query",
-                        "description": "Id",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful operation"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/admin/account/store": {
-            "post": {
-                "tags": [
-                    "admin,account,store"
-                ],
-                "summary": "account",
-                "description": "",
-                "operationId": "account-store",
-                "parameters": [
-                    {
-                        "name": "name",
-                        "in": "query",
-                        "description": "Name",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "detail",
-                        "in": "query",
-                        "description": "Detail",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful operation"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/admin/account/update": {
-            "post": {
-                "tags": [
-                    "admin,account,update"
-                ],
-                "summary": "account",
-                "description": "",
-                "operationId": "account-update",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "query",
-                        "description": "Id",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "name",
-                        "in": "query",
-                        "description": "Name",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "detail",
-                        "in": "query",
-                        "description": "Detail",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful operation"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/admin/account/delete": {
-            "post": {
-                "tags": [
-                    "admin,account,delete"
-                ],
-                "summary": "account",
-                "description": "",
-                "operationId": "account-delete",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "query",
-                        "description": "Id",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful operation"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/admin/account/UpdateIsActive": {
-            "post": {
-                "tags": [
-                    "admin,account,UpdateIsActive"
-                ],
-                "summary": "account",
-                "description": "",
-                "operationId": "account-UpdateIsActive",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "query",
-                        "description": "Id",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful operation"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/admin/account/updateIsShow": {
-            "post": {
-                "tags": [
-                    "admin,account,updateIsShow"
-                ],
-                "summary": "account",
-                "description": "",
-                "operationId": "account-updateIsShow",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "query",
-                        "description": "Id",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful operation"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/admin/account_sub_account/listing": {
-            "get": {
-                "tags": [
-                    "admin,account_sub_account,listing"
-                ],
-                "summary": "account_sub_account",
-                "description": "",
-                "operationId": "account_sub_account-listing",
-                "responses": {
-                    "200": {
-                        "description": "Successful operation"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/admin/account_sub_account/detail": {
-            "get": {
-                "tags": [
-                    "admin,account_sub_account,detail"
-                ],
-                "summary": "account_sub_account",
-                "description": "",
-                "operationId": "account_sub_account-detail",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "query",
-                        "description": "Id",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful operation"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/admin/account_sub_account/store": {
-            "post": {
-                "tags": [
-                    "admin,account_sub_account,store"
-                ],
-                "summary": "account_sub_account",
-                "description": "",
-                "operationId": "account_sub_account-store",
-                "parameters": [
-                    {
-                        "name": "account_id",
-                        "in": "query",
-                        "description": "Account Id",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "sub_account_id",
-                        "in": "query",
-                        "description": "Sub Account Id",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful operation"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/admin/account_sub_account/update": {
-            "post": {
-                "tags": [
-                    "admin,account_sub_account,update"
-                ],
-                "summary": "account_sub_account",
-                "description": "",
-                "operationId": "account_sub_account-update",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "query",
-                        "description": "Id",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "account_id",
-                        "in": "query",
-                        "description": "Account Id",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "sub_account_id",
-                        "in": "query",
-                        "description": "Sub Account Id",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful operation"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/admin/account_sub_account/delete": {
-            "post": {
-                "tags": [
-                    "admin,account_sub_account,delete"
-                ],
-                "summary": "account_sub_account",
-                "description": "",
-                "operationId": "account_sub_account-delete",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "query",
-                        "description": "Id",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful operation"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/admin/account_sub_account/UpdateIsActive": {
-            "post": {
-                "tags": [
-                    "admin,account_sub_account,UpdateIsActive"
-                ],
-                "summary": "account_sub_account",
-                "description": "",
-                "operationId": "account_sub_account-UpdateIsActive",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "query",
-                        "description": "Id",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful operation"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/admin/account_sub_account/updateIsShow": {
-            "post": {
-                "tags": [
-                    "admin,account_sub_account,updateIsShow"
-                ],
-                "summary": "account_sub_account",
-                "description": "",
-                "operationId": "account_sub_account-updateIsShow",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "query",
-                        "description": "Id",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful operation"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/admin/party_account_transaction/listing": {
-            "get": {
-                "tags": [
-                    "admin,party_account_transaction,listing"
-                ],
-                "summary": "party_account_transaction",
-                "description": "",
-                "operationId": "party_account_transaction-listing",
-                "responses": {
-                    "200": {
-                        "description": "Successful operation"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/admin/party_account_transaction/detail": {
-            "get": {
-                "tags": [
-                    "admin,party_account_transaction,detail"
-                ],
-                "summary": "party_account_transaction",
-                "description": "",
-                "operationId": "party_account_transaction-detail",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "query",
-                        "description": "Id",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful operation"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/admin/party_account_transaction/store": {
-            "post": {
-                "tags": [
-                    "admin,party_account_transaction,store"
-                ],
-                "summary": "party_account_transaction",
-                "description": "",
-                "operationId": "party_account_transaction-store",
-                "parameters": [
-                    {
-                        "name": "party_transaction_id",
-                        "in": "query",
-                        "description": "Party Transaction Id",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "account_id",
-                        "in": "query",
-                        "description": "Account Id",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "dr",
-                        "in": "query",
-                        "description": "Dr",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "cr",
-                        "in": "query",
-                        "description": "Cr",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful operation"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/admin/party_account_transaction/update": {
-            "post": {
-                "tags": [
-                    "admin,party_account_transaction,update"
-                ],
-                "summary": "party_account_transaction",
-                "description": "",
-                "operationId": "party_account_transaction-update",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "query",
-                        "description": "Id",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "party_transaction_id",
-                        "in": "query",
-                        "description": "Party Transaction Id",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "account_id",
-                        "in": "query",
-                        "description": "Account Id",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "dr",
-                        "in": "query",
-                        "description": "Dr",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "cr",
-                        "in": "query",
-                        "description": "Cr",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful operation"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/admin/party_account_transaction/delete": {
-            "post": {
-                "tags": [
-                    "admin,party_account_transaction,delete"
-                ],
-                "summary": "party_account_transaction",
-                "description": "",
-                "operationId": "party_account_transaction-delete",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "query",
-                        "description": "Id",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful operation"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/admin/party_account_transaction/UpdateIsActive": {
-            "post": {
-                "tags": [
-                    "admin,party_account_transaction,UpdateIsActive"
-                ],
-                "summary": "party_account_transaction",
-                "description": "",
-                "operationId": "party_account_transaction-UpdateIsActive",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "query",
-                        "description": "Id",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful operation"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/admin/party_account_transaction/updateIsShow": {
-            "post": {
-                "tags": [
-                    "admin,party_account_transaction,updateIsShow"
-                ],
-                "summary": "party_account_transaction",
-                "description": "",
-                "operationId": "party_account_transaction-updateIsShow",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "query",
-                        "description": "Id",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful operation"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
         "/api/admin/party/listing": {
             "get": {
                 "tags": [
@@ -1089,268 +291,14 @@
                 ]
             }
         },
-        "/api/admin/party_transaction/listing": {
-            "get": {
-                "tags": [
-                    "admin,party_transaction,listing"
-                ],
-                "summary": "party_transaction",
-                "description": "",
-                "operationId": "party_transaction-listing",
-                "responses": {
-                    "200": {
-                        "description": "Successful operation"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/admin/party_transaction/detail": {
-            "get": {
-                "tags": [
-                    "admin,party_transaction,detail"
-                ],
-                "summary": "party_transaction",
-                "description": "",
-                "operationId": "party_transaction-detail",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "query",
-                        "description": "Id",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful operation"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/admin/party_transaction/store": {
-            "post": {
-                "tags": [
-                    "admin,party_transaction,store"
-                ],
-                "summary": "party_transaction",
-                "description": "",
-                "operationId": "party_transaction-store",
-                "parameters": [
-                    {
-                        "name": "party_id",
-                        "in": "query",
-                        "description": "Party Id",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "transaction_id",
-                        "in": "query",
-                        "description": "Transaction Id",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful operation"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/admin/party_transaction/update": {
-            "post": {
-                "tags": [
-                    "admin,party_transaction,update"
-                ],
-                "summary": "party_transaction",
-                "description": "",
-                "operationId": "party_transaction-update",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "query",
-                        "description": "Id",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "party_id",
-                        "in": "query",
-                        "description": "Party Id",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "transaction_id",
-                        "in": "query",
-                        "description": "Transaction Id",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful operation"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/admin/party_transaction/delete": {
-            "post": {
-                "tags": [
-                    "admin,party_transaction,delete"
-                ],
-                "summary": "party_transaction",
-                "description": "",
-                "operationId": "party_transaction-delete",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "query",
-                        "description": "Id",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful operation"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/admin/party_transaction/UpdateIsActive": {
-            "post": {
-                "tags": [
-                    "admin,party_transaction,UpdateIsActive"
-                ],
-                "summary": "party_transaction",
-                "description": "",
-                "operationId": "party_transaction-UpdateIsActive",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "query",
-                        "description": "Id",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful operation"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/admin/party_transaction/updateIsShow": {
-            "post": {
-                "tags": [
-                    "admin,party_transaction,updateIsShow"
-                ],
-                "summary": "party_transaction",
-                "description": "",
-                "operationId": "party_transaction-updateIsShow",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "query",
-                        "description": "Id",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful operation"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
         "/api/admin/role/listing": {
             "get": {
                 "tags": [
                     "admin,role,listing"
                 ],
-                "summary": "role",
+                "summary": "roles",
                 "description": "",
-                "operationId": "role-data-listing",
+                "operationId": "role-listing",
                 "responses": {
                     "200": {
                         "description": "Successful operation"
@@ -1364,455 +312,20 @@
                         "bearerAuth": []
                     }
                 ]
-            }
-        },
-        "/api/admin/role/detail": {
-            "get": {
-                "tags": [
-                    "admin,role,detail"
-                ],
-                "summary": "role",
-                "description": "",
-                "operationId": "role-detail",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "query",
-                        "description": "Id",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful operation"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/admin/role/store": {
+            },
             "post": {
                 "tags": [
-                    "admin,role,store"
+                    "admin,role,listing"
                 ],
                 "summary": "role",
                 "description": "",
-                "operationId": "role-store",
+                "operationId": "roles-listing",
                 "parameters": [
                     {
-                        "name": "name",
+                        "name": "search",
                         "in": "query",
-                        "description": "Name",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful operation"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/admin/role/update": {
-            "post": {
-                "tags": [
-                    "admin,role,update"
-                ],
-                "summary": "role",
-                "description": "",
-                "operationId": "role-update",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "query",
-                        "description": "Id",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "name",
-                        "in": "query",
-                        "description": "Name",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful operation"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/admin/role/delete": {
-            "post": {
-                "tags": [
-                    "admin,role,delete"
-                ],
-                "summary": "role",
-                "description": "",
-                "operationId": "role-delete",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "query",
-                        "description": "Id",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful operation"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/admin/role/UpdateIsActive": {
-            "post": {
-                "tags": [
-                    "admin,role,UpdateIsActive"
-                ],
-                "summary": "role",
-                "description": "",
-                "operationId": "role-UpdateIsActive",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "query",
-                        "description": "Id",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful operation"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/admin/role/updateIsShow": {
-            "post": {
-                "tags": [
-                    "admin,role,updateIsShow"
-                ],
-                "summary": "role",
-                "description": "",
-                "operationId": "role-updateIsShow",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "query",
-                        "description": "Id",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful operation"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/admin/sub_account/listing": {
-            "get": {
-                "tags": [
-                    "admin,sub_account,listing"
-                ],
-                "summary": "sub_account",
-                "description": "",
-                "operationId": "sub_account-listing",
-                "responses": {
-                    "200": {
-                        "description": "Successful operation"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/admin/sub_account/detail": {
-            "get": {
-                "tags": [
-                    "admin,sub_account,detail"
-                ],
-                "summary": "sub_account",
-                "description": "",
-                "operationId": "sub_account-detail",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "query",
-                        "description": "Id",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful operation"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/admin/sub_account/store": {
-            "post": {
-                "tags": [
-                    "admin,sub_account,store"
-                ],
-                "summary": "sub_account",
-                "description": "",
-                "operationId": "sub_account-store",
-                "parameters": [
-                    {
-                        "name": "name",
-                        "in": "query",
-                        "description": "Name",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "detail",
-                        "in": "query",
-                        "description": "Detail",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful operation"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/admin/sub_account/update": {
-            "post": {
-                "tags": [
-                    "admin,sub_account,update"
-                ],
-                "summary": "sub_account",
-                "description": "",
-                "operationId": "sub_account-update",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "query",
-                        "description": "Id",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "name",
-                        "in": "query",
-                        "description": "Name",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "detail",
-                        "in": "query",
-                        "description": "Detail",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful operation"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/admin/sub_account/delete": {
-            "post": {
-                "tags": [
-                    "admin,sub_account,delete"
-                ],
-                "summary": "sub_account",
-                "description": "",
-                "operationId": "sub_account-delete",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "query",
-                        "description": "Id",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful operation"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/admin/sub_account/UpdateIsActive": {
-            "post": {
-                "tags": [
-                    "admin,sub_account,UpdateIsActive"
-                ],
-                "summary": "sub_account",
-                "description": "",
-                "operationId": "sub_account-UpdateIsActive",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "query",
-                        "description": "Id",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful operation"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/admin/sub_account/updateIsShow": {
-            "post": {
-                "tags": [
-                    "admin,sub_account,updateIsShow"
-                ],
-                "summary": "sub_account",
-                "description": "",
-                "operationId": "sub_account-updateIsShow",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "query",
-                        "description": "Id",
-                        "required": true,
+                        "description": "Search",
+                        "required": false,
                         "schema": {
                             "type": "string"
                         }
@@ -2625,6 +1138,219 @@
                         "description": "Forbidden"
                     }
                 }
+            }
+        },
+        "/api/admin/role/detail": {
+            "get": {
+                "tags": [
+                    "admin,role,detail"
+                ],
+                "summary": "roles",
+                "description": "",
+                "operationId": "role-detail",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "Id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/role/store": {
+            "post": {
+                "tags": [
+                    "admin,role,store"
+                ],
+                "summary": "roles",
+                "description": "",
+                "operationId": "role-store",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "Name",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/role/update": {
+            "post": {
+                "tags": [
+                    "admin,role,update"
+                ],
+                "summary": "roles",
+                "description": "",
+                "operationId": "role-update",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "Id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "Name",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/role/delete": {
+            "post": {
+                "tags": [
+                    "admin,role,delete"
+                ],
+                "summary": "roles",
+                "description": "",
+                "operationId": "role-delete",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "Id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/role/UpdateIsActive": {
+            "post": {
+                "tags": [
+                    "admin,role,UpdateIsActive"
+                ],
+                "summary": "roles",
+                "description": "",
+                "operationId": "role-UpdateIsActive",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "Id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/admin/role/updateIsShow": {
+            "post": {
+                "tags": [
+                    "admin,role,updateIsShow"
+                ],
+                "summary": "roles",
+                "description": "",
+                "operationId": "role-updateIsShow",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "Id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/user/profile/getUser": {

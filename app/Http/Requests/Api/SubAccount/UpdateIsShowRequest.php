@@ -2,9 +2,9 @@
 
 namespace App\Http\Requests\Api\SubAccount;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseRequest;
 
-class UpdateIsShowRequest extends FormRequest
+class UpdateIsShowRequest extends BaseRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class UpdateIsShowRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,7 @@ class UpdateIsShowRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'id' => 'required|exists:sub_accounts,id'
         ];
     }
 }

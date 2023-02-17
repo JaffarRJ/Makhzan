@@ -1,36 +1,40 @@
 <?php
 
-namespace App\Http\Controllers\Api\Admin;
+namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Api\Party\DeleteRequest;
-use App\Http\Requests\Api\Party\DetailRequest;
-use App\Http\Requests\Api\Party\ListingRequest;
-use App\Http\Requests\Api\Party\StoreRequest;
-use App\Http\Requests\Api\Party\UpdateIsActiveRequest;
-use App\Http\Requests\Api\Party\UpdateIsShowRequest;
-use App\Http\Requests\Api\Party\UpdateRequest;
-use App\Models\Party;
-use Illuminate\Http\Request;
+use App\Http\Requests\Api\Role\DeleteRequest;
+use App\Http\Requests\Api\Role\DetailRequest;
+use App\Http\Requests\Api\Role\ListingRequest;
+use App\Http\Requests\Api\Role\StoreRequest;
+use App\Http\Requests\Api\Role\UpdateIsActiveRequest;
+use App\Http\Requests\Api\Role\UpdateIsShowRequest;
+use App\Http\Requests\Api\Role\UpdateRequest;
+use App\Jobs\SendNotificationJob;
+use App\Models\Permission;
+use App\Models\Role;
+use App\Models\RolePermission;
 use Exception;
 use Illuminate\Database\QueryException;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
-class PartyController extends Controller
+class RoleController extends Controller
 {
     private $pagination, $model;
 
     public function __construct()
     {
-        $this->model = new Party();
+        $this->model = new Role();
         $this->pagination = request('page_size') ? request('page_size') : PAGINATE;
     }
     /**
      * @OA\GET(
-     *      path="/api/admin/party/listing",
-     *      operationId="party-listing",
-     *      tags={"admin,party,listing"},
-     *      summary="party",
+     *      path="/api/admin/role/listing",
+     *      operationId="role-listing",
+     *      tags={"admin,role,listing"},
+     *      summary="roles",
      *       security={
      *           {"bearerAuth": {}}
      *       },
@@ -60,10 +64,10 @@ class PartyController extends Controller
 
     /**
      * @OA\GET(
-     *      path="/api/admin/party/detail",
-     *      operationId="party-detail",
-     *      tags={"admin,party,detail"},
-     *      summary="party",
+     *      path="/api/admin/role/detail",
+     *      operationId="role-detail",
+     *      tags={"admin,role,detail"},
+     *      summary="roles",
      *       security={
      *           {"bearerAuth": {}}
      *       },
@@ -98,10 +102,10 @@ class PartyController extends Controller
 
     /**
      * @OA\POST(
-     *      path="/api/admin/party/store",
-     *      operationId="party-store",
-     *      tags={"admin,party,store"},
-     *      summary="party",
+     *      path="/api/admin/role/store",
+     *      operationId="role-store",
+     *      tags={"admin,role,store"},
+     *      summary="roles",
      *       security={
      *           {"bearerAuth": {}}
      *       },
@@ -109,24 +113,6 @@ class PartyController extends Controller
      *      @OA\Parameter(
      *          name="name",
      *          description="Name",
-     *          required=true,
-     *           in="query",
-     *          @OA\Schema(
-     *              type="string"
-     *          )
-     *      ),
-     *      @OA\Parameter(
-     *          name="cnic",
-     *          description="Cnic",
-     *          required=true,
-     *           in="query",
-     *          @OA\Schema(
-     *              type="string"
-     *          )
-     *      ),
-     *      @OA\Parameter(
-     *          name="address",
-     *          description="Address",
      *          required=true,
      *           in="query",
      *          @OA\Schema(
@@ -168,10 +154,10 @@ class PartyController extends Controller
 
     /**
      * @OA\POST(
-     *      path="/api/admin/party/update",
-     *      operationId="party-update",
-     *      tags={"admin,party,update"},
-     *      summary="party",
+     *      path="/api/admin/role/update",
+     *      operationId="role-update",
+     *      tags={"admin,role,update"},
+     *      summary="roles",
      *       security={
      *           {"bearerAuth": {}}
      *       },
@@ -188,24 +174,6 @@ class PartyController extends Controller
      *      @OA\Parameter(
      *          name="name",
      *          description="Name",
-     *          required=true,
-     *           in="query",
-     *          @OA\Schema(
-     *              type="string"
-     *          )
-     *      ),
-     *      @OA\Parameter(
-     *          name="cnic",
-     *          description="Cnic",
-     *          required=true,
-     *           in="query",
-     *          @OA\Schema(
-     *              type="string"
-     *          )
-     *      ),
-     *      @OA\Parameter(
-     *          name="address",
-     *          description="Address",
      *          required=true,
      *           in="query",
      *          @OA\Schema(
@@ -247,10 +215,10 @@ class PartyController extends Controller
 
     /**
      * @OA\POST(
-     *      path="/api/admin/party/delete",
-     *      operationId="party-delete",
-     *      tags={"admin,party,delete"},
-     *      summary="party",
+     *      path="/api/admin/role/delete",
+     *      operationId="role-delete",
+     *      tags={"admin,role,delete"},
+     *      summary="roles",
      *       security={
      *           {"bearerAuth": {}}
      *       },
@@ -298,10 +266,10 @@ class PartyController extends Controller
 
     /**
      * @OA\POST(
-     *      path="/api/admin/party/UpdateIsActive",
-     *      operationId="party-UpdateIsActive",
-     *      tags={"admin,party,UpdateIsActive"},
-     *      summary="party",
+     *      path="/api/admin/role/UpdateIsActive",
+     *      operationId="role-UpdateIsActive",
+     *      tags={"admin,role,UpdateIsActive"},
+     *      summary="roles",
      *       security={
      *           {"bearerAuth": {}}
      *       },
@@ -355,10 +323,10 @@ class PartyController extends Controller
 
     /**
      * @OA\POST(
-     *      path="/api/admin/party/updateIsShow",
-     *      operationId="party-updateIsShow",
-     *      tags={"admin,party,updateIsShow"},
-     *      summary="party",
+     *      path="/api/admin/role/updateIsShow",
+     *      operationId="role-updateIsShow",
+     *      tags={"admin,role,updateIsShow"},
+     *      summary="roles",
      *       security={
      *           {"bearerAuth": {}}
      *       },
