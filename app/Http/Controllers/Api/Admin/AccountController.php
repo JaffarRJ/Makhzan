@@ -13,7 +13,6 @@ use App\Http\Requests\Api\Account\UpdateRequest;
 use App\Models\Account;
 use Exception;
 use Illuminate\Database\QueryException;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class AccountController extends Controller
