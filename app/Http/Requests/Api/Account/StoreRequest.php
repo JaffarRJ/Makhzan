@@ -2,9 +2,9 @@
 
 namespace App\Http\Requests\Api\Account;
 
-use App\Http\Requests\BaseRequest;
+use Illuminate\Foundation\Http\FormRequest;
 
-class StoreRequest extends BaseRequest
+class StoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class StoreRequest extends BaseRequest
      */
     public function authorize()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -24,8 +24,7 @@ class StoreRequest extends BaseRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'detail' => 'required',
+            //
         ];
     }
 }

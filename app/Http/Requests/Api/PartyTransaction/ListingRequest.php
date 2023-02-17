@@ -2,9 +2,9 @@
 
 namespace App\Http\Requests\Api\PartyTransaction;
 
-use App\Http\Requests\BaseRequest;
+use Illuminate\Foundation\Http\FormRequest;
 
-class ListingRequest extends BaseRequest
+class ListingRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class ListingRequest extends BaseRequest
      */
     public function authorize()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -24,7 +24,7 @@ class ListingRequest extends BaseRequest
     public function rules()
     {
         return [
-            'search' => 'nullable'
+            //
         ];
     }
 }

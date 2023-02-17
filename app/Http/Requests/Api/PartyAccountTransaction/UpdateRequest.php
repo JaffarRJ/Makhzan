@@ -2,9 +2,9 @@
 
 namespace App\Http\Requests\Api\PartyAccountTransaction;
 
-use App\Http\Requests\BaseRequest;
+use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateRequest extends BaseRequest
+class UpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class UpdateRequest extends BaseRequest
      */
     public function authorize()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -24,11 +24,7 @@ class UpdateRequest extends BaseRequest
     public function rules()
     {
         return [
-            'id' => 'required|exists:party_account_transactions,id',
-            'party_transaction_id' => 'required|exists:party_transactions,id',
-            'account_id' => 'required|exists:accounts,id',
-            'dr' => 'required',
-            'cr' => 'required'
+            //
         ];
     }
 }
