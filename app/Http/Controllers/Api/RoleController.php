@@ -4,7 +4,11 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\Role\DeleteRequest;
+use App\Http\Requests\Api\Role\DetailRequest;
+use App\Http\Requests\Api\Role\ListingRequest;
 use App\Http\Requests\Api\Role\StoreRequest;
+use App\Http\Requests\Api\Role\UpdateIsActiveRequest;
+use App\Http\Requests\Api\Role\UpdateIsShowRequest;
 use App\Http\Requests\Api\Role\UpdateRequest;
 use App\Jobs\SendNotificationJob;
 use App\Models\Permission;
@@ -18,170 +22,359 @@ use Illuminate\Support\Facades\DB;
 
 class RoleController extends Controller
 {
-    private $role, $permission, $rolePermission;
+    private $pagination, $model;
 
     public function __construct()
     {
-        $this->role = new Role();
-        $this->permission = new Permission();
-        $this->rolePermission = new RolePermission();
+        $this->model = new Role();
+        $this->pagination = request('page_size') ? request('page_size') : PAGINATE;
     }
-
-    public function listing(Request $request)
+    /**
+     * @OA\GET(
+     *      path="/api/admin/role/listing",
+     *      operationId="role-listing",
+     *      tags={"admin,role,listing"},
+     *      summary="roles",
+     *       security={
+     *           {"bearerAuth": {}}
+     *       },
+     *      description="",
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *       ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      )
+     *     )
+     */
+    public function listing(ListingRequest $request)
     {
         $inputs = $request->all();
-        $query = $this->role->newQuery();
+        $query = $this->model->newQuery();
         if (!empty($inputs['search'])) {
             $query->where(function ($q) use ($inputs) {
-                searchTable($q, $inputs['search'], ['slug', 'title']);
+                searchTable($q, $inputs['search'], ['name']);
             });
         }
-        $roles  = $query->get();
-        foreach ($roles as $key => $role) {
-            $role->permissions = $this->getFormattedPermissions($role);
-        }
-        return successDataResponse(GENERAL_FETCHED_MESSAGE, $roles);
+        $data = $query->paginate($this->pagination);
+        return successWithData(GENERAL_FETCHED_MESSAGE, $data);
     }
+
+    /**
+     * @OA\GET(
+     *      path="/api/admin/role/detail",
+     *      operationId="role-detail",
+     *      tags={"admin,role,detail"},
+     *      summary="roles",
+     *       security={
+     *           {"bearerAuth": {}}
+     *       },
+     *      description="",
+     *      @OA\Parameter(
+     *          name="id",
+     *          description="Id",
+     *          required=true,
+     *           in="query",
+     *          @OA\Schema(
+     *              type="string"
+     *          )
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *       ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      )
+     *     )
+     */
+
+    public function detail(DetailRequest $request)
+    {
+        $inputs = $request->all();
+        $data = $this->model->newQuery()
+            ->whereId($inputs['id'])->first();
+        return successWithData(GENERAL_FETCHED_MESSAGE, $data);
+    }
+
+    /**
+     * @OA\POST(
+     *      path="/api/admin/role/store",
+     *      operationId="role-store",
+     *      tags={"admin,role,store"},
+     *      summary="roles",
+     *       security={
+     *           {"bearerAuth": {}}
+     *       },
+     *      description="",
+     *      @OA\Parameter(
+     *          name="name",
+     *          description="Name",
+     *          required=true,
+     *           in="query",
+     *          @OA\Schema(
+     *              type="string"
+     *          )
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *       ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      )
+     *     )
+     */
 
     public function store(StoreRequest $request)
     {
         try {
             DB::beginTransaction();
             $inputs = $request->all();
-            $role = $this->role->newInstance();
-            $role->slug = str_replace(' ', '-', strtolower($inputs['title']));
-            $role->title = $inputs['title'];
-            if ($role->save()) {
-                if ($this->updateRolePermissions($inputs, $role->id)) {
-                    $role = $role->fresh();
-                    $role->permissions = $this->getFormattedPermissions($role);
-                    // Send Real Time Notification Update
-                    systemRealTimeNotify(NOTIFICATION_DATA_CREATED, ADMINISTRATION_COMPONENT_ROLES, $role);
-                    DB::commit();
-                    return successResponse(GENERAL_SUCCESS_MESSAGE, SUCCESS_200);
-                }
+            $model = $this->model->newInstance();
+            $model->fill($inputs);
+            if (!$model->save()) {
+                DB::rollback();
+                return error(GENERAL_ERROR_MESSAGE, ERROR_400);
             }
-            DB::rollback();
-            return errorResponse(GENERAL_ERROR_MESSAGE, ERROR_400);
+            DB::commit();
+            return successWithData(GENERAL_SUCCESS_MESSAGE, $model->fresh());
         } catch (QueryException $e) {
             DB::rollBack();
-            return errorResponse($e->getMessage(), ERROR_500);
+            return error($e->getMessage(), ERROR_500);
         } catch (Exception $e) {
             DB::rollBack();
-            return errorResponse($e->getMessage(), ERROR_500);
+            return error($e->getMessage(), ERROR_500);
         }
     }
+
+    /**
+     * @OA\POST(
+     *      path="/api/admin/role/update",
+     *      operationId="role-update",
+     *      tags={"admin,role,update"},
+     *      summary="roles",
+     *       security={
+     *           {"bearerAuth": {}}
+     *       },
+     *      description="",
+     *      @OA\Parameter(
+     *          name="id",
+     *          description="Id",
+     *          required=true,
+     *           in="query",
+     *          @OA\Schema(
+     *              type="string"
+     *          )
+     *      ),
+     *      @OA\Parameter(
+     *          name="name",
+     *          description="Name",
+     *          required=true,
+     *           in="query",
+     *          @OA\Schema(
+     *              type="string"
+     *          )
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *       ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      )
+     *     )
+     */
 
     public function update(UpdateRequest $request)
     {
         try {
             DB::beginTransaction();
             $inputs = $request->all();
-            $role = $this->role->newQuery()->where('id', $inputs['id'])->first();
-            $role->slug = str_replace(' ', '-', strtolower($inputs['title']));
-            $role->title = $inputs['title'];
-            if ($role->save()) {
-                if ($this->updateRolePermissions($inputs, $role->id)) {
-                    $this->sendNotification($role->id);
-                    $role = $role->fresh();
-                    $role->permissions = $this->getFormattedPermissions($role);
-                    // Send Real Time Notification Update
-                    systemRealTimeNotify(NOTIFICATION_DATA_UPDATED, ADMINISTRATION_COMPONENT_ROLES, $role);
-                    DB::commit();
-                    return successResponse(GENERAL_SUCCESS_MESSAGE, SUCCESS_200);
-                }
+            $model = $this->model->newQuery()->where('id', $inputs['id'])->first();
+            $model->fill($inputs);
+            if (!$model->save()) {
+                DB::rollback();
+                return error(GENERAL_ERROR_MESSAGE, ERROR_400);
             }
-            DB::rollback();
-            return errorResponse(GENERAL_ERROR_MESSAGE, ERROR_400);
+            DB::commit();
+            return successWithData(GENERAL_SUCCESS_MESSAGE, $model->fresh());
         } catch (QueryException $e) {
             DB::rollBack();
-            return errorResponse($e->getMessage(), ERROR_500);
+            return error($e->getMessage(), ERROR_500);
         } catch (Exception $e) {
             DB::rollBack();
-            return errorResponse($e->getMessage(), ERROR_500);
+            return error($e->getMessage(), ERROR_500);
         }
     }
 
-
-
-    private function updateRolePermissions($inputs, $roleId)
-    {
-        $this->rolePermission->newQuery()->where('role_id', $roleId)->delete();
-        foreach ($inputs['permissions'] as $id => $permission) {
-            foreach ($permission['action'] as $action => $value) {
-                if ($value) {
-                    $rolePermission = $this->rolePermission->newInstance();
-                    $rolePermission->permission_id = $permission['id'];
-                    $rolePermission->role_id = $roleId;
-                    $rolePermission->action = $action;
-                    if (!$rolePermission->save()) {
-                        return false;
-                    }
-                }
-            }
-        }
-        return true;
-    }
+    /**
+     * @OA\POST(
+     *      path="/api/admin/role/delete",
+     *      operationId="role-delete",
+     *      tags={"admin,role,delete"},
+     *      summary="roles",
+     *       security={
+     *           {"bearerAuth": {}}
+     *       },
+     *      description="",
+     *      @OA\Parameter(
+     *          name="id",
+     *          description="Id",
+     *          required=true,
+     *           in="query",
+     *          @OA\Schema(
+     *              type="string"
+     *          )
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *       ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      )
+     *     )
+     */
 
     public function delete(DeleteRequest $request)
     {
         try {
             DB::beginTransaction();
             $inputs = $request->all();
-            $role = $this->role->newQuery()->where('id', $inputs['id'])->first();
-            if (count($role->users)) {
+            $model = $this->model->newQuery()->where('id', $inputs['id'])->first();
+            if (!$model->delete()) {
                 DB::rollback();
-                return errorResponse('Please remove all users from this role to delete!', ERROR_400);
+                return error(GENERAL_ERROR_MESSAGE, ERROR_400);
             }
-            if ($role->delete()) {
-                // Send Real Time Notification Update
-                systemRealTimeNotify(NOTIFICATION_DATA_DELETED, ADMINISTRATION_COMPONENT_ROLES, collect(['id' => (integer) $inputs['id']]) );
-                DB::commit();
-                return successResponse(GENERAL_SUCCESS_MESSAGE, SUCCESS_200);
-            }
-            DB::rollback();
-            return errorResponse(GENERAL_ERROR_MESSAGE, ERROR_400);
+            DB::commit();
+            return success(GENERAL_DELETED_MESSAGE);
         } catch (QueryException $e) {
             DB::rollBack();
-            return errorResponse($e->getMessage(), ERROR_500);
+            return error($e->getMessage(), ERROR_500);
         } catch (Exception $e) {
             DB::rollBack();
-            return errorResponse($e->getMessage(), ERROR_500);
+            return error($e->getMessage(), ERROR_500);
         }
     }
 
-    private function getFormattedPermissions($role)
+    /**
+     * @OA\POST(
+     *      path="/api/admin/role/UpdateIsActive",
+     *      operationId="role-UpdateIsActive",
+     *      tags={"admin,role,UpdateIsActive"},
+     *      summary="roles",
+     *       security={
+     *           {"bearerAuth": {}}
+     *       },
+     *      description="",
+     *      @OA\Parameter(
+     *          name="id",
+     *          description="Id",
+     *          required=true,
+     *           in="query",
+     *          @OA\Schema(
+     *              type="string"
+     *          )
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *       ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      )
+     *     )
+     */
+
+    public function UpdateIsActive(UpdateIsActiveRequest $request)
     {
-        $permissions = [];
-        $per = $this->permission->newQuery()->get();
-        foreach ($per as $key => $permission) {
-            $permissions[$key]['id'] = $permission->id;
-            $permissions[$key]['title'] = $permission->name;
-            $permissions[$key]['action'][ROLE_ACTION_READ] = $this->rolePermission->newQuery()->where('role_id', $role->id)->where('permission_id', $permission->id)->where('action', ROLE_ACTION_READ)->exists();
-            $permissions[$key]['action'][ROLE_ACTION_WRITE] = $this->rolePermission->newQuery()->where('role_id', $role->id)->where('permission_id', $permission->id)->where('action', ROLE_ACTION_WRITE)->exists();
+        try {
+            DB::beginTransaction();
+            $inputs = $request->all();
+            $model = $this->model->newQuery()->where('id', $inputs['id'])->first();
+            if($model->is_active == true || $model->is_active == 1)
+            {
+                $model->is_active = 0;
+            }else{
+                $model->is_active = 1;
+            }
+            if (!$model->save()) {
+                DB::rollback();
+                return error(GENERAL_ERROR_MESSAGE, ERROR_400);
+            }
+            DB::commit();
+            return success(GENERAL_UPDATED_MESSAGE);
+        } catch (QueryException $e) {
+            DB::rollBack();
+            return error(GENERAL_ERROR_MESSAGE, ERROR_500);
+        } catch (Exception $e) {
+            DB::rollBack();
+            return error(GENERAL_ERROR_MESSAGE, ERROR_500);
         }
-        return $permissions;
     }
 
-    public function permissionsList()
-    {
-        $permissions = [];
-        $per = $this->permission->newQuery()->get();
-        foreach ($per as $key => $permission) {
-            $permissions[$key]['id'] = $permission->id;
-            $permissions[$key]['title'] = $permission->name;
-            $permissions[$key]['action'][ROLE_ACTION_READ] = true;
-            $permissions[$key]['action'][ROLE_ACTION_WRITE] = true;
-        }
-        return successDataResponse(GENERAL_FETCHED_MESSAGE, $permissions);
-    }
+    /**
+     * @OA\POST(
+     *      path="/api/admin/role/updateIsShow",
+     *      operationId="role-updateIsShow",
+     *      tags={"admin,role,updateIsShow"},
+     *      summary="roles",
+     *       security={
+     *           {"bearerAuth": {}}
+     *       },
+     *      description="",
+     *      @OA\Parameter(
+     *          name="id",
+     *          description="Id",
+     *          required=true,
+     *           in="query",
+     *          @OA\Schema(
+     *              type="string"
+     *          )
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *       ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      )
+     *     )
+     */
 
-    private function sendNotification($roleId)
+    public function updateIsShow(UpdateIsShowRequest $request)
     {
-        $data = [];
-        $data['body'] = '';
-        $data['title'] = 'Permissions Updated';
-        $data['data'] = json_encode(getUserPermissions($roleId));
-        dispatch(new SendNotificationJob([$roleId], $data, false));
+        try {
+            DB::beginTransaction();
+            $inputs = $request->all();
+            $model = $this->model->newQuery()->where('id', $inputs['id'])->first();
+            if($model->is_show == true || $model->is_show == 1)
+            {
+                $model->is_show = 0;
+            }else{
+                $model->is_show = 1;
+            }
+            if (!$model->save()) {
+                DB::rollback();
+                return error(GENERAL_ERROR_MESSAGE, ERROR_400);
+            }
+            DB::commit();
+            return success(GENERAL_UPDATED_MESSAGE);
+        } catch (QueryException $e) {
+            DB::rollBack();
+            return error(GENERAL_ERROR_MESSAGE, ERROR_500);
+        } catch (Exception $e) {
+            DB::rollBack();
+            return error(GENERAL_ERROR_MESSAGE, ERROR_500);
+        }
     }
 }
