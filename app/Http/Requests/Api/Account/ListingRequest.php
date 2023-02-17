@@ -2,9 +2,9 @@
 
 namespace App\Http\Requests\Api\Account;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseRequest;
 
-class ListingRequest extends FormRequest
+class ListingRequest extends BaseRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class ListingRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,7 @@ class ListingRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'search' => 'nullable'
         ];
     }
 }
