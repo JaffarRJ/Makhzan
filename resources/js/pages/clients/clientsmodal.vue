@@ -55,7 +55,7 @@
         <!-- /Add Client Modal -->
 
         <!-- Edit Client Modal -->
-        <div id="edit_client" class="modal custom-modal fade" role="dialog">
+        <!--<div id="edit_client" class="modal custom-modal fade" role="dialog">
           <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
               <div class="modal-header">
@@ -70,25 +70,25 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label class="col-form-label">Username <span class="text-danger">*</span></label>
-                        <input class="form-control" value="barrycuda" type="text">
+                        <input class="form-control" type="text"  v-model="user.name">
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
                         <label class="col-form-label">Email <span class="text-danger">*</span></label>
-                        <input class="form-control floating" value="barrycuda@example.com" type="email">
+                        <input class="form-control floating" type="email"  v-model="user.email">
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
                         <label class="col-form-label">Password</label>
-                        <input class="form-control" value="barrycuda" type="password">
+                        <input class="form-control" type="password"  v-model="user.password">
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
                         <label class="col-form-label">Confirm Password</label>
-                        <input class="form-control" value="barrycuda" type="password">
+                        <input class="form-control" type="password" v-model="user.confirm_password">
                       </div>
                     </div>
                       <div class="col-md-6">
@@ -106,7 +106,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div>-->
         <!-- /Edit Client Modal -->
 
         <!-- Delete Client Modal -->
@@ -165,12 +165,7 @@
                 $("#add_client").modal('hide')
                     .catch(err => console.log(err))
                     .finally(() => this.loading = false)
-            },updateClient() {
-                this.axios.patch(`api/admin/user/update/${this.$route.params.id}`, this.user).then((res) => {
-                    this.$router.push({name: 'home'});
-                });
-            },
-            setroles() {
+            }, setroles() {
                 this.axios.get(`http://127.0.0.1:8000/api/admin/user/role/listing`)
                     .then((response) => {
                         this.getRoles = response.data.data;

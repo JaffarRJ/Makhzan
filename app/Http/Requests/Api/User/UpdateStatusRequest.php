@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Api\User;
+namespace App\Http\Requests\Api\PurchaseOrder;
 
-use App\Http\Requests\BaseRequest;
+use App\Http\Requests\Api\BaseRequest;
 
-class UpdateRequest extends BaseRequest
+class UpdateStatusRequest extends BaseRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,12 +25,7 @@ class UpdateRequest extends BaseRequest
     {
         return [
             'id' => 'required|exists:users,id',
-            'name' => 'required',
-//            'role_id' => 'required|array',
-            'role_id' => 'required',
-//            'role_id.*' => 'required|exists:roles,id',
-            'email' => 'required|email:rfc,dns',
-//            'password' => 'required|confirmed'
+            'status' => 'required|in:' . ORDER_PENDING . ',' . ORDER_COMPLETED
         ];
     }
 }

@@ -49,7 +49,7 @@ Route::middleware(['auth:sanctum'])->prefix('admin')->group(function () {
     Route::prefix('user')->group(function () {
         Route::controller(UserController::class)->group(function () {
             Route::get('listing', 'listing');
-            Route::get('detail', 'detail');
+            Route::post('detail', 'detail');
             Route::get('role/listing', 'roleListing');
             Route::post('store', 'store');
             Route::post('update', 'update');
