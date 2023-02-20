@@ -159,6 +159,11 @@ import EmployeeListContent from './pages/employees/mainemployee/employeeslistcon
 import HeaderHoliday from './pages/employees/holidays/headerholidays.vue'
 import HolidayContent from './pages/employees/holidays/holidaycontent.vue'
 import ModalHoliday from './pages/employees/holidays/modalholiday.vue'
+
+ import HeaderAccount from './pages/employees/accounts/headeraccount.vue'
+ import AccountContent from './pages/employees/accounts/accountcontent.vue'
+ import ModalAccount from './pages/employees/accounts/modalaccount.vue'
+
 import HeaderLeave from './pages/employees/leave/headerleave.vue'
 import LeaveWidget from './pages/employees/leave/leavewidget.vue'
 import LeaveFilter from './pages/employees/leave/leavefilter.vue'
@@ -607,6 +612,11 @@ app.component('employeelistcontent', EmployeeListContent);
 app.component('headerholidays', HeaderHoliday);
 app.component('holidaycontent', HolidayContent);
 app.component('modalholiday', ModalHoliday);
+
+ app.component('headeraccount', HeaderAccount);
+ app.component('accountcontent', AccountContent);
+ app.component('modalaccount', ModalAccount);
+
 app.component('headerleave', HeaderLeave);
 app.component('leavewidget', LeaveWidget);
 app.component('leavefilter', LeaveFilter);

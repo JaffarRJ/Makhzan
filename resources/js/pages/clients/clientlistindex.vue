@@ -18,15 +18,13 @@
 
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="table-responsive">
+                            <div class="table-responsive" style="overflow-x:hidden">
                                 <table class="table table-striped custom-table datatable" id="clientlist">
                                     <thead>
                                     <tr>
                                         <th>Name</th>
-                                        <!--                      <th>Client ID</th>-->
                                         <th>Email</th>
                                         <th>Role</th>
-                                        <!--                      <th>Mobile</th>-->
                                         <th>Status</th>
                                         <th class="text-end">Action</th>
                                     </tr>

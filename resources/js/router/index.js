@@ -77,6 +77,7 @@ import designations from '../pages/employees/designations'
 import mainemployee from '../pages/employees/mainemployee'
 import employeeslistindex from '../pages/employees/mainemployee/employeeslistindex'
 import holidays from '../pages/employees/holidays'
+import accounts from '../pages/employees/accounts'
 import leave from '../pages/employees/leave'
 import leaveemployee from '../pages/employees/leaveemployee'
 import leavesettings from '../pages/employees/leavesettings'
@@ -689,7 +690,14 @@ const routes = [
       meta: {
       requiresAuth: true
   }
-  },
+  },{
+        path: '/accounts',
+        name: 'accounts',
+        component: () => import('../pages/employees/accounts'),
+        meta: {
+            requiresAuth: true
+        }
+    },
   {
       path: '/inbox',
       name: 'inbox',
