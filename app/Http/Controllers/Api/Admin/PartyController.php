@@ -54,7 +54,8 @@ class PartyController extends Controller
                 searchTable($q, $inputs['search'], ['name']);
             });
         }
-        $data = $query->paginate($this->pagination);
+        $data = $query->with(['transactions'])
+            ->paginate($this->pagination);
         return successWithData(GENERAL_FETCHED_MESSAGE, $data);
     }
 
