@@ -277,7 +277,7 @@ class UserController extends Controller
             $inputs = $request->all();
             $user = $this->user->newQuery()->whereId($inputs['id'])->first();
             $user->fill($inputs);
-            $user->password = Hash::make($inputs['password']);
+//            $user->password = Hash::make($inputs['password']);
             if (!$user->save()) {
                 DB::rollback();
                 return error(GENERAL_ERROR_MESSAGE, ERROR_400);

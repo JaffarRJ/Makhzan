@@ -26,10 +26,11 @@ class UpdateRequest extends BaseRequest
         return [
             'id' => 'required|exists:users,id',
             'name' => 'required',
-            'role_id' => 'required|array',
-            'role_id.*' => 'required|exists:roles,id',
+//            'role_id' => 'required|array',
+            'role_id' => 'required',
+//            'role_id.*' => 'required|exists:roles,id',
             'email' => 'required|email:rfc,dns',
-            'password' => 'required|confirmed'
+//            'password' => 'required|confirmed'
         ];
     }
 }

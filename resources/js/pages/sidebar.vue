@@ -1,12 +1,12 @@
 <template>
   <div>
       <!-- <sidebar> -->
-        <div class="sidebar" id="sidebar"> 
+        <div class="sidebar" id="sidebar">
         <div class="sidebar-inner" id="style-15">
-         <perfect-scrollbar class="scroll-area"  :settings="settings" @ps-scroll-y="scrollHanle"> 
+         <perfect-scrollbar class="scroll-area"  :settings="settings" @ps-scroll-y="scrollHanle">
          <div id="sidebar-menu" class="sidebar-menu">
           <ul>
-              <li class="menu-title"> 
+              <li class="menu-title">
                 <span>Main</span>
               </li>
               <li class="submenu">
@@ -16,7 +16,7 @@
                   <li><router-link to="/employee-dashboard">Employee Dashboard</router-link></li>
                 </ul>
               </li>
-              <li class="submenu">
+              <!--<li class="submenu">
                 <a href="javascript:void(0)"><i class="la la-cube"></i> <span> Apps</span> <span class="menu-arrow"></span></a>
                 <ul style="display: none;">
                   <li><router-link to="/chat">Chat</router-link></li>
@@ -34,14 +34,15 @@
                   <li><router-link to="/inbox">Email</router-link></li>
                   <li><router-link to="/file-manager">File Manager</router-link></li>
                 </ul>
-              </li>
-              <li class="menu-title"> 
+              </li>-->
+              <li class="menu-title">
                 <span>Employees</span>
               </li>
               <li class="submenu">
               <a href="javascript:void(0)" v-bind:class="{'active': currentPath == 'employees-list' || currentPath == 'shift-list'}" class="noti-dot"><i class="la la-user"></i> <span> Employees</span> <span class="menu-arrow"></span></a>
                 <ul style="display: none;">
                   <li><router-link v-bind:class="{'active': currentPath == 'employees-list'}" to="/employees">All Employees</router-link></li>
+                  <li><router-link to="/accounts">Accounts</router-link></li>
                   <li><router-link to="/holidays">Holidays</router-link></li>
                   <li><router-link to="/leaves">Leaves (Admin) <span class="badge rounded-pill bg-primary float-end">1</span></router-link></li>
                   <li><router-link to="/leaves-employee">Leaves (Employee)</router-link></li>
@@ -55,10 +56,10 @@
                   <li><router-link to="/overtime">Overtime</router-link></li>
                 </ul>
               </li>
-              <li> 
+              <li>
                 <router-link to="/clients" v-bind:class="{'active': currentPath == 'clients-list'}"><i class="la la-users"></i> <span>Clients</span></router-link>
               </li>
-              <li class="submenu">
+              <!--<li class="submenu">
                 <a v-bind:class="{'active': currentPath == 'project-list' || currentPath == 'project-view'}" href="javascript:void(0)"><i class="la la-rocket"></i> <span> Projects</span> <span class="menu-arrow"></span></a>
                 <ul style="display: none;">
                   <li><router-link v-bind:class="{'active': currentPath == 'project-list'  || currentPath == 'project-view'}" to="/projects">Projects</router-link></li>
@@ -66,13 +67,13 @@
                   <li><router-link to="/task-board">Task Board</router-link></li>
                 </ul>
               </li>
-              <li> 
+              <li>
                 <router-link to="/leads"><i class="la la-user-secret"></i> <span>Leads</span></router-link>
               </li>
-              <li v-bind:class="{'active': currentPath == 'ticket-view'}"> 
+              <li v-bind:class="{'active': currentPath == 'ticket-view'}">
                 <router-link v-bind:class="{'active': currentPath == 'ticket-view'}" to="/tickets"><i class="la la-ticket"></i> <span>Tickets</span></router-link>
               </li>
-              <li class="menu-title"> 
+              <li class="menu-title">
                 <span>HR</span>
               </li>
               <li class="submenu">
@@ -103,7 +104,7 @@
                   <li><router-link to="/payroll-items"> Payroll Items </router-link></li>
                 </ul>
               </li>
-              <li> 
+              <li>
                 <router-link to="/policies"><i class="la la-file-pdf-o"></i> <span>Policies</span></router-link>
               </li>
               <li class="submenu">
@@ -122,7 +123,7 @@
                   <li><router-link to="/daily-reports"> Daily Report </router-link></li>
                 </ul>
               </li>
-              <li class="menu-title"> 
+              <li class="menu-title">
                 <span>Performance</span>
               </li>
               <li class="submenu">
@@ -151,10 +152,10 @@
               <li><router-link to="/promotion"><i class="la la-bullhorn"></i> <span>Promotion</span></router-link></li>
               <li><router-link to="/resignation"><i class="la la-external-link-square"></i> <span>Resignation</span></router-link></li>
               <li><router-link to="/termination"><i class="la la-times-circle"></i> <span>Termination</span></router-link></li>
-              <li class="menu-title"> 
+              <li class="menu-title">
                 <span>Administration</span>
               </li>
-              <li> 
+              <li>
                 <router-link to="/assets"><i class="la la-object-ungroup"></i> <span>Assets</span></router-link>
               </li>
               <li class="submenu">
@@ -173,19 +174,19 @@
                   <li><router-link to="/apptitude-result"> Aptitude Results </router-link></li>
                 </ul>
               </li>
-              <li> 
+              <li>
                 <router-link v-bind:class="{'active': currentPath == 'knowledgebase-view'}" to="/knowledgebase"><i class="la la-question"></i> <span>Knowledgebase</span></router-link>
               </li>
-              <li> 
+              <li>
                 <router-link to="/activities"><i class="la la-bell"></i> <span>Activities</span></router-link>
               </li>
-              <li> 
+              <li>
                 <router-link to="/users"><i class="la la-user-plus"></i> <span>Users</span></router-link>
               </li>
-              <li> 
+              <li>
                 <router-link to="/settings"><i class="la la-cog"></i> <span>Settings</span></router-link>
               </li>
-              <li class="menu-title"> 
+              <li class="menu-title">
                 <span>Pages</span>
               </li>
               <li class="submenu">
@@ -230,10 +231,10 @@
                   <li><router-link to="/blank-page"> Blank Page </router-link></li>
                 </ul>
               </li>
-              <li class="menu-title"> 
+              <li class="menu-title">
                 <span>UI Interface</span>
               </li>
-              <li> 
+              <li>
                 <router-link to="/components"><i class="la la-puzzle-piece"></i> <span>Components</span></router-link>
               </li>
               <li class="submenu">
@@ -254,13 +255,13 @@
                   <li><router-link to="/data-tables">Data Table </router-link></li>
                 </ul>
               </li>
-              <li class="menu-title"> 
+              <li class="menu-title">
                 <span>Extras</span>
               </li>
-              <li> 
+              <li>
                 <a href="javascript:void(0)"><i class="la la-file-text"></i> <span>Documentation</span></a>
               </li>
-              <li> 
+              <li>
                 <a href="javascript:void(0);"><i class="la la-info"></i> <span>Change Log</span> <span class="badge badge-primary ms-auto">v3.4</span></a>
               </li>
               <li class="submenu">
@@ -284,7 +285,7 @@
                     <a href="javascript:void(0);"> <span>Level 1</span></a>
                   </li>
                 </ul>
-              </li>
+              </li>-->
             </ul>
   </div>
   </perfect-scrollbar>
@@ -293,7 +294,7 @@
       <!-- </sidebar> -->
   </div>
   </template>
-  <script>  
+  <script>
    import {PerfectScrollbar}  from 'vue3-perfect-scrollbar'
     import 'vue3-perfect-scrollbar/dist/vue3-perfect-scrollbar.css'
     export default {
@@ -334,11 +335,11 @@
     },
     methods: {
     scrollHanle(evt) {
-      
+
     }
   },
           }
-         
+
           </script>
           <style>
           .scroll-area {

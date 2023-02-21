@@ -38,9 +38,8 @@
                     </div>
                       <div class="col-md-6">
                           <label class="col-form-label">Role <span class="text-danger">*</span></label>
-
                           <select class="form-control" type="role" v-model="user.role_id" >
-                              <option class="select" :value="0">Select Roles</option>
+                              <option selected="selected" :value="0">Select Roles</option>
                               <option v-for="role in getRoles" :value="role.id" :key="role.id">{{role.name}}</option>
                           </select>
                       </div>
@@ -56,7 +55,7 @@
         <!-- /Add Client Modal -->
 
         <!-- Edit Client Modal -->
-        <div id="edit_client" class="modal custom-modal fade" role="dialog">
+        <!--<div id="edit_client" class="modal custom-modal fade" role="dialog">
           <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
               <div class="modal-header">
@@ -71,44 +70,32 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label class="col-form-label">Username <span class="text-danger">*</span></label>
-                        <input class="form-control" value="barrycuda" type="text">
+                        <input class="form-control" type="text"  v-model="user.name">
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
                         <label class="col-form-label">Email <span class="text-danger">*</span></label>
-                        <input class="form-control floating" value="barrycuda@example.com" type="email">
+                        <input class="form-control floating" type="email"  v-model="user.email">
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
                         <label class="col-form-label">Password</label>
-                        <input class="form-control" value="barrycuda" type="password">
+                        <input class="form-control" type="password"  v-model="user.password">
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
                         <label class="col-form-label">Confirm Password</label>
-                        <input class="form-control" value="barrycuda" type="password">
+                        <input class="form-control" type="password" v-model="user.confirm_password">
                       </div>
                     </div>
                       <div class="col-md-6">
                           <label class="col-form-label">Role <span class="text-danger">*</span></label>
-
-                          <select class="select floating">
-                              <option>Select Month</option>
-                              <option>Jan</option>
-                              <option>Feb</option>
-                              <option>Mar</option>
-                              <option>Apr</option>
-                              <option>May</option>
-                              <option>Jun</option>
-                              <option>Jul</option>
-                              <option>Aug</option>
-                              <option>Sep</option>
-                              <option>Oct</option>
-                              <option>Nov</option>
-                              <option>Dec</option>
+                          <select class="form-control" type="role" v-model="user.role_id" >
+                              <option selected="selected" :value="0">Select Roles</option>
+                              <option v-for="role in getRoles" :value="role.id" :key="role.id">{{role.name}}</option>
                           </select>
                       </div>
                   </div>
@@ -119,7 +106,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div>-->
         <!-- /Edit Client Modal -->
 
         <!-- Delete Client Modal -->
@@ -148,6 +135,8 @@
         <!-- /Delete Client Modal -->
 </template>
 
+
+
 <script>
     export default {
         data:function() {
@@ -168,25 +157,24 @@
         methods: {
             addUser() {
                 console.log(this.user);
-                this.axios.post('http://127.0.0.1:8000/api/admin/user/store', this.user)
+                this.axios.post('api/admin/user/store', this.user)
                     .then(response => (
                         console.log(response)
                         // this.$router.push({ name: 'home' })
                     ))
+                $("#add_client").modal('hide')
                     .catch(err => console.log(err))
                     .finally(() => this.loading = false)
-            },
-            setroles() {
+            }, setroles() {
                 this.axios.get(`http://127.0.0.1:8000/api/admin/user/role/listing`)
                     .then((response) => {
                         this.getRoles = response.data.data;
                         console.log(this.getRoles)})
 
-                        // this.$router.push({ name: 'home' })
+                    // this.$router.push({ name: 'home' })
                     .catch(err => console.log(err))
                     .finally(() => this.loading = false)
             }
-
         }
     }
 </script>

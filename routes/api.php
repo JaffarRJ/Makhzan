@@ -2,7 +2,10 @@
 
 use App\Http\Controllers\Api\Admin\AccountController;
 use App\Http\Controllers\Api\Admin\AccountSubAccountController;
+<<<<<<< HEAD
 use App\Http\Controllers\Api\Admin\EmployeeController;
+=======
+>>>>>>> 4cbbacf06dcca2f9e5491f75f59c126d5579f801
 use App\Http\Controllers\Api\Admin\PartyAccountTransactionController;
 use App\Http\Controllers\Api\Admin\PartyController;
 use App\Http\Controllers\Api\Admin\PartyTransactionController;
@@ -14,7 +17,10 @@ use App\Http\Controllers\Api\Admin\UserController;
 use App\Http\Controllers\Api\Admin\RoleController;
 use App\Http\Controllers\Api\Admin\SubAccountController;
 use App\Http\Controllers\Api\Admin\TransactionController;
+<<<<<<< HEAD
 use Illuminate\Http\Request;
+=======
+>>>>>>> 4cbbacf06dcca2f9e5491f75f59c126d5579f801
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -57,7 +63,7 @@ Route::middleware(['auth:sanctum'])->prefix('admin')->group(function () {
     Route::prefix('user')->group(function () {
         Route::controller(UserController::class)->group(function () {
             Route::get('listing', 'listing');
-            Route::get('detail', 'detail');
+            Route::post('detail', 'detail');
             Route::get('role/listing', 'roleListing');
             Route::post('store', 'store');
             Route::post('update', 'update');
