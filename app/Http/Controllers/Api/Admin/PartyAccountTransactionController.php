@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\Admin;
 
 use App\Http\Controllers\Controller;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Illuminate\Http\Request;
 
 class PartyAccountTransactionController extends Controller
@@ -24,6 +25,22 @@ use Illuminate\Support\Facades\DB;
 
 class PartyAccountTransactionController extends Controller
 {
+=======
+use App\Http\Requests\Api\PartyAccountTransaction\DeleteRequest;
+use App\Http\Requests\Api\PartyAccountTransaction\DetailRequest;
+use App\Http\Requests\Api\PartyAccountTransaction\ListingRequest;
+use App\Http\Requests\Api\PartyAccountTransaction\StoreRequest;
+use App\Http\Requests\Api\PartyAccountTransaction\UpdateIsActiveRequest;
+use App\Http\Requests\Api\PartyAccountTransaction\UpdateIsShowRequest;
+use App\Http\Requests\Api\PartyAccountTransaction\UpdateRequest;
+use App\Models\PartyAccountTransaction;
+use Exception;
+use Illuminate\Database\QueryException;
+use Illuminate\Support\Facades\DB;
+
+class PartyAccountTransactionController extends Controller
+{
+>>>>>>> b412c16ed17098337a287c7d120f24485d88b630
     private $pagination, $model;
 
     public function __construct()
@@ -433,5 +450,8 @@ class PartyAccountTransactionController extends Controller
             return error(GENERAL_ERROR_MESSAGE, ERROR_500);
         }
     }
+<<<<<<< HEAD
 >>>>>>> 4cbbacf06dcca2f9e5491f75f59c126d5579f801
+=======
+>>>>>>> b412c16ed17098337a287c7d120f24485d88b630
 }

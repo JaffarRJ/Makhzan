@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\Admin;
 
 use App\Http\Controllers\Controller;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Illuminate\Http\Request;
 
 class AccountSubAccountController extends Controller
@@ -23,6 +24,21 @@ use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\DB;
 class AccountSubAccountController extends Controller
 {
+=======
+use App\Http\Requests\Api\AccountSubAccount\DeleteRequest;
+use App\Http\Requests\Api\AccountSubAccount\DetailRequest;
+use App\Http\Requests\Api\AccountSubAccount\ListingRequest;
+use App\Http\Requests\Api\AccountSubAccount\StoreRequest;
+use App\Http\Requests\Api\AccountSubAccount\UpdateIsActiveRequest;
+use App\Http\Requests\Api\AccountSubAccount\UpdateIsShowRequest;
+use App\Http\Requests\Api\AccountSubAccount\UpdateRequest;
+use App\Models\AccountSubAccount;
+use Exception;
+use Illuminate\Database\QueryException;
+use Illuminate\Support\Facades\DB;
+class AccountSubAccountController extends Controller
+{
+>>>>>>> b412c16ed17098337a287c7d120f24485d88b630
     private $pagination, $model;
 
     public function __construct()
@@ -396,5 +412,8 @@ class AccountSubAccountController extends Controller
             return error(GENERAL_ERROR_MESSAGE, ERROR_500);
         }
     }
+<<<<<<< HEAD
 >>>>>>> 4cbbacf06dcca2f9e5491f75f59c126d5579f801
+=======
+>>>>>>> b412c16ed17098337a287c7d120f24485d88b630
 }

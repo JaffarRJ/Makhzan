@@ -14,9 +14,12 @@ use App\Models\Account;
 use Exception;
 use Illuminate\Database\QueryException;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Illuminate\Http\Request;
 =======
 >>>>>>> 4cbbacf06dcca2f9e5491f75f59c126d5579f801
+=======
+>>>>>>> b412c16ed17098337a287c7d120f24485d88b630
 use Illuminate\Support\Facades\DB;
 
 class AccountController extends Controller
