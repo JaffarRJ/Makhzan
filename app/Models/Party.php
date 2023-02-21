@@ -22,6 +22,6 @@ class Party extends Model
      */
     public function transactions(): BelongsToMany
     {
-        return $this->belongsToMany(Transaction::class, 'party_transactions', 'party_id', 'transaction_id');
+        return $this->belongsToMany(Transaction::class, 'party_transactions', 'party_id', 'transaction_id')->withPivot('id');
     }
 }
