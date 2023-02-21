@@ -164,6 +164,14 @@ import ModalHoliday from './pages/employees/holidays/modalholiday.vue'
  import AccountContent from './pages/employees/accounts/accountcontent.vue'
  import ModalAccount from './pages/employees/accounts/modalaccount.vue'
 
+ import HeaderSubAccount from './pages/employees/subaccounts/headersubaccount.vue'
+ import SubAccountContent from './pages/employees/subaccounts/subaccountcontent.vue'
+ import ModalSubAccount from './pages/employees/subaccounts/modalsubaccount.vue'
+
+ import HeaderAccountSubAcc from './pages/employees/accountsubaccounts/headeraccountsubacc.vue'
+ import AccountSubAccContent from './pages/employees/accountsubaccounts/accountsubacccontent.vue'
+ import ModalAccountSubAcc from './pages/employees/accountsubaccounts/modalaccountsubacc.vue'
+
 import HeaderLeave from './pages/employees/leave/headerleave.vue'
 import LeaveWidget from './pages/employees/leave/leavewidget.vue'
 import LeaveFilter from './pages/employees/leave/leavefilter.vue'
@@ -616,6 +624,14 @@ app.component('modalholiday', ModalHoliday);
  app.component('headeraccount', HeaderAccount);
  app.component('accountcontent', AccountContent);
  app.component('modalaccount', ModalAccount);
+
+ app.component('headersubaccount', HeaderSubAccount);
+ app.component('subaccountcontent', SubAccountContent);
+ app.component('modalsubaccount', ModalSubAccount);
+
+ app.component('headeraccountsubacc', HeaderAccountSubAcc);
+ app.component('accountsubacccontent', AccountSubAccContent);
+ app.component('modalaccountsubacc', ModalAccountSubAcc);
 
 app.component('headerleave', HeaderLeave);
 app.component('leavewidget', LeaveWidget);
