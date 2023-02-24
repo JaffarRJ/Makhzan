@@ -3,14 +3,6 @@
 namespace App\Http\Controllers\Api\Admin;
 
 use App\Http\Controllers\Controller;
-<<<<<<< HEAD
-<<<<<<< HEAD
-use Illuminate\Http\Request;
-
-class PartyTransactionController extends Controller
-{
-    //
-=======
 use App\Http\Requests\Api\PartyTransaction\DeleteRequest;
 use App\Http\Requests\Api\PartyTransaction\DetailRequest;
 use App\Http\Requests\Api\PartyTransaction\ListingRequest;
@@ -25,22 +17,6 @@ use Illuminate\Support\Facades\DB;
 
 class PartyTransactionController extends Controller
 {
-=======
-use App\Http\Requests\Api\PartyTransaction\DeleteRequest;
-use App\Http\Requests\Api\PartyTransaction\DetailRequest;
-use App\Http\Requests\Api\PartyTransaction\ListingRequest;
-use App\Http\Requests\Api\PartyTransaction\StoreRequest;
-use App\Http\Requests\Api\PartyTransaction\UpdateIsActiveRequest;
-use App\Http\Requests\Api\PartyTransaction\UpdateIsShowRequest;
-use App\Http\Requests\Api\PartyTransaction\UpdateRequest;
-use App\Models\PartyTransaction;
-use Exception;
-use Illuminate\Database\QueryException;
-use Illuminate\Support\Facades\DB;
-
-class PartyTransactionController extends Controller
-{
->>>>>>> b412c16ed17098337a287c7d120f24485d88b630
     private $pagination, $model;
 
     public function __construct()
@@ -71,7 +47,7 @@ class PartyTransactionController extends Controller
     public function listing(ListingRequest $request)
     {
         $inputs = $request->all();
-        $query = $this->model->newQuery();
+        $query = $this->model->newQuery()->with(['transaction', 'party']);
         if (!empty($inputs['search'])) {
             $query->where(function ($q) use ($inputs) {
                 searchTable($q, $inputs['search'], ['name']);
@@ -115,7 +91,9 @@ class PartyTransactionController extends Controller
     {
         $inputs = $request->all();
         $data = $this->model->newQuery()
-            ->whereId($inputs['id'])->first();
+            ->whereId($inputs['id'])
+            ->with(['transaction', 'party'])
+            ->first();
         return successWithData(GENERAL_FETCHED_MESSAGE, $data);
     }
 
@@ -414,8 +392,4 @@ class PartyTransactionController extends Controller
             return error(GENERAL_ERROR_MESSAGE, ERROR_500);
         }
     }
-<<<<<<< HEAD
->>>>>>> 4cbbacf06dcca2f9e5491f75f59c126d5579f801
-=======
->>>>>>> b412c16ed17098337a287c7d120f24485d88b630
 }
