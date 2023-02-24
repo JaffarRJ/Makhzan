@@ -43,6 +43,8 @@
                 <ul style="display: none;">
                   <li><router-link v-bind:class="{'active': currentPath == 'employees-list'}" to="/employees">All Employees</router-link></li>
                   <li><router-link to="/accounts">Accounts</router-link></li>
+                  <li><router-link to="/subaccounts">Sub Accounts</router-link></li>
+                  <li><router-link to="/accountsubaccounts">Account Sub Accounts</router-link></li>
                   <li><router-link to="/holidays">Holidays</router-link></li>
                   <li><router-link to="/leaves">Leaves (Admin) <span class="badge rounded-pill bg-primary float-end">1</span></router-link></li>
                   <li><router-link to="/leaves-employee">Leaves (Employee)</router-link></li>

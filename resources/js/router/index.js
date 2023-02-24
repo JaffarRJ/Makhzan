@@ -78,6 +78,8 @@ import mainemployee from '../pages/employees/mainemployee'
 import employeeslistindex from '../pages/employees/mainemployee/employeeslistindex'
 import holidays from '../pages/employees/holidays'
 import accounts from '../pages/employees/accounts'
+import subaccounts from '../pages/employees/subaccounts'
+import accountsubaccounts from '../pages/employees/accountsubaccounts'
 import leave from '../pages/employees/leave'
 import leaveemployee from '../pages/employees/leaveemployee'
 import leavesettings from '../pages/employees/leavesettings'
@@ -217,6 +219,7 @@ import resignation from '../pages/resignation'
 import subscriptioncompany from '../pages/subscription/subscriptioncompany'
 import subscriptions from '../pages/subscription/subscriptions'
 import subscribedcompanies from '../pages/subscription/subscribedcompanies'
+// import accountsubacccontent from "../pages/employees/accountsubaccounts/accountsubacccontent";
 
 const routes = [
   {
@@ -694,6 +697,20 @@ const routes = [
         path: '/accounts',
         name: 'accounts',
         component: () => import('../pages/employees/accounts'),
+        meta: {
+            requiresAuth: true
+        }
+    },{
+        path: '/subaccounts',
+        name: 'subaccounts',
+        component: () => import('../pages/employees/subaccounts'),
+        meta: {
+            requiresAuth: true
+        }
+    },{
+        path: '/accountsubaccounts',
+        name: 'accountsubaccounts',
+        component: () => import('../pages/employees/accountsubaccounts'),
         meta: {
             requiresAuth: true
         }

@@ -19,7 +19,7 @@
                       <td>{{item.detail}}</td>
                         <td>
                             <div class="dropdown action-label">
-                                <a href="javascript:void(0)"
+                                <a href="javascript:void(0)" v-on:change="changeStatus(item.is_active)"
                                    class="btn btn-white btn-sm btn-rounded dropdown-toggle"
                                    data-bs-toggle="dropdown" aria-expanded="false"><i
                                     class="fa fa-dot-circle-o text-success"></i> {{item.is_active == 1?
@@ -91,6 +91,10 @@ export default {
             });
         },updateList() {
             this.axios.post(`api/admin/account/update`, this.user).then((response) => {
+                window.location.reload();
+            });
+        },changeStatus(id) {
+            this.axios.post(`api/admin/account/updateIsActive`, {'id': id}).then((response) => {
                 window.location.reload();
             });
         },
