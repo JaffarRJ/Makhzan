@@ -15,8 +15,8 @@
                   <tbody>
                     <tr class="holiday-completed" v-for="item in getlist" :key="item.id">
                       <td>{{item.id}}</td>
-                      <td>{{item.party_id}}</td>
-                      <td>{{item.transaction_id}}</td>
+                      <td>{{item.party.name}}</td>
+                      <td>{{item.transaction.name}}</td>
                         <td>
                             <div class="dropdown action-label">
                                 <a href="javascript:void(0)" v-on:change="changeStatus(item.is_active)"
@@ -67,39 +67,39 @@ export default {
     },
     methods: {
         setList() {
-            this.axios.get(`api/admin/party_account_transaction/listing`).then((res) => {
+            this.axios.get(`api/admin/party_transaction/listing`).then((res) => {
                 this.getlist = res.data.data.data;
             });
         },
         addList() {
-            this.axios.post('api/admin/party_account_transaction/store', this.list).then(response => (this.setUsers()))
+            this.axios.post('api/admin/party_transaction/store', this.list).then(response => (this.setUsers()))
                 .catch(err => console.log(err))
                 .finally(() => this.loading = false)
         },
         deleteList(id) {
             if (confirm("Are you sure to delete ?")) {
-                this.axios.post(`api/admin/party_account_transaction/delete/`, {'id': id}).then(response => {
+                this.axios.post(`api/admin/party_transaction/delete/`, {'id': id}).then(response => {
                     window.location.reload();
                 });
             }
         }, editList(id) {
-            this.axios.post(`api/admin/party_account_transaction/detail/`, {'id': id}).then(response => {
+            this.axios.post(`api/admin/party_transaction/detail/`, {'id': id}).then(response => {
                 const getData = response.data.data;
                 this.list.id = getData.id;
                 this.list.name = getData.name;
                 this.list.email = getData.detail;
             });
         },updateList() {
-            this.axios.post(`api/admin/party_account_transaction/update`, this.user).then((response) => {
+            this.axios.post(`api/admin/party_transaction/update`, this.user).then((response) => {
                 window.location.reload();
             });
         },changeStatus(id) {
-            this.axios.post(`api/admin/party_account_transaction/updateIsActive`, {'id': id}).then((response) => {
+            this.axios.post(`api/admin/party_transaction/updateIsActive`, {'id': id}).then((response) => {
                 window.location.reload();
             });
         },
     },
     components: {},
-    name: 'partyaccounttransactions'
+    name: 'partytransactions'
 }
 </Script>

@@ -33,6 +33,6 @@
 
 
     },
-    name: 'partyaccounttransactions'
+    name: 'partytransactions'
   }
 </Script>

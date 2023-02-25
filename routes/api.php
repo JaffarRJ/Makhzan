@@ -55,7 +55,7 @@ Route::middleware(['auth:sanctum'])->prefix('admin')->group(function () {
     Route::prefix('user')->group(function () {
         Route::controller(UserController::class)->group(function () {
             Route::get('listing', 'listing');
-            Route::get('detail', 'detail');
+            Route::post('detail', 'detail');
             Route::get('role/listing', 'roleListing');
             Route::post('store', 'store');
             Route::post('update', 'update');
@@ -67,7 +67,7 @@ Route::middleware(['auth:sanctum'])->prefix('admin')->group(function () {
     Route::prefix('transaction')->group(function () {
         Route::controller(TransactionController::class)->group(function () {
             Route::get('listing', 'listing');
-            Route::get('detail', 'detail');
+            Route::post('detail', 'detail');
             Route::post('store', 'store');
             Route::post('update', 'update');
             Route::post('delete', 'delete');
@@ -78,7 +78,7 @@ Route::middleware(['auth:sanctum'])->prefix('admin')->group(function () {
     Route::prefix('party')->group(function () {
         Route::controller(PartyController::class)->group(function () {
             Route::get('listing', 'listing');
-            Route::get('detail', 'detail');
+            Route::post('detail', 'detail');
             Route::post('store', 'store');
             Route::post('update', 'update');
             Route::post('delete', 'delete');
@@ -89,7 +89,7 @@ Route::middleware(['auth:sanctum'])->prefix('admin')->group(function () {
     Route::prefix('account')->group(function () {
         Route::controller(AccountController::class)->group(function () {
             Route::get('listing', 'listing');
-            Route::get('detail', 'detail');
+            Route::post('detail', 'detail');
             Route::post('store', 'store');
             Route::post('update', 'update');
             Route::post('delete', 'delete');
@@ -100,7 +100,7 @@ Route::middleware(['auth:sanctum'])->prefix('admin')->group(function () {
     Route::prefix('party_transaction')->group(function () {
         Route::controller(PartyTransactionController::class)->group(function () {
             Route::get('listing', 'listing');
-            Route::get('detail', 'detail');
+            Route::post('detail', 'detail');
             Route::post('store', 'store');
             Route::post('update', 'update');
             Route::post('delete', 'delete');
@@ -111,7 +111,7 @@ Route::middleware(['auth:sanctum'])->prefix('admin')->group(function () {
     Route::prefix('party_account_transaction')->group(function () {
         Route::controller(PartyAccountTransactionController::class)->group(function () {
             Route::get('listing', 'listing');
-            Route::get('detail', 'detail');
+            Route::post('detail', 'detail');
             Route::post('store', 'store');
             Route::post('update', 'update');
             Route::post('delete', 'delete');
@@ -122,7 +122,7 @@ Route::middleware(['auth:sanctum'])->prefix('admin')->group(function () {
     Route::prefix('sub_account')->group(function () {
         Route::controller(SubAccountController::class)->group(function () {
             Route::get('listing', 'listing');
-            Route::get('detail', 'detail');
+            Route::post('detail', 'detail');
             Route::post('store', 'store');
             Route::post('update', 'update');
             Route::post('delete', 'delete');
@@ -133,7 +133,7 @@ Route::middleware(['auth:sanctum'])->prefix('admin')->group(function () {
     Route::prefix('account_sub_account')->group(function () {
         Route::controller(AccountSubAccountController::class)->group(function () {
             Route::get('listing', 'listing');
-            Route::get('detail', 'detail');
+            Route::post('detail', 'detail');
             Route::post('store', 'store');
             Route::post('update', 'update');
             Route::post('delete', 'delete');
@@ -144,7 +144,7 @@ Route::middleware(['auth:sanctum'])->prefix('admin')->group(function () {
     Route::prefix('role')->group(function () {
         Route::controller(RoleController::class)->group(function () {
             Route::get('listing', 'listing');
-            Route::get('detail', 'detail');
+            Route::post('detail', 'detail');
             Route::post('store', 'store');
             Route::post('update', 'update');
             Route::post('delete', 'delete');

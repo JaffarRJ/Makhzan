@@ -15,8 +15,8 @@
                   <tbody>
                     <tr class="holiday-completed" v-for="item in getlist" :key="item.id">
                       <td>{{item.id}}</td>
-                      <td>{{item.account_id}}</td>
-                      <td>{{item.sub_account_id}}</td>
+                      <td>{{item.account.name}}</td>
+                      <td>{{item.sub_account.name}}</td>
                         <td>
                             <div class="dropdown action-label">
                                 <a href="javascript:void(0)" v-on:change="changeStatus(item.is_active)"
@@ -69,6 +69,7 @@ export default {
         setList() {
             this.axios.get(`api/admin/account_sub_account/listing`).then((res) => {
                 this.getlist = res.data.data.data;
+                console.log(this.getlist);
             });
         },
         addList() {

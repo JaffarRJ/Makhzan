@@ -118,7 +118,7 @@
     },
       methods: {
           addList() {
-              this.axios.post('api/admin/party_transaction/store', this.list)
+              this.axios.post('api/admin/party_account_transaction/store', this.list)
                   .then((response) => {
                       window.location.reload();
                   });

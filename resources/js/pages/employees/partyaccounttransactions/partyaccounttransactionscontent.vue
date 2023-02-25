@@ -67,30 +67,30 @@ export default {
     },
     methods: {
         setList() {
-            this.axios.get(`api/admin/party_transaction/listing`).then((res) => {
+            this.axios.get(`api/admin/party_account_transaction/listing`).then((res) => {
                 this.getlist = res.data.data.data;
             });
         },
         addList() {
-            this.axios.post('api/admin/party_transaction/store', this.list).then(response => (this.setUsers()))
+            this.axios.post('api/admin/party_account_transaction/store', this.list).then(response => (this.setUsers()))
                 .catch(err => console.log(err))
                 .finally(() => this.loading = false)
         },
         deleteList(id) {
             if (confirm("Are you sure to delete ?")) {
-                this.axios.post(`api/admin/party_transaction/delete/`, {'id': id}).then(response => {
+                this.axios.post(`api/admin/party_account_transaction/delete/`, {'id': id}).then(response => {
                     window.location.reload();
                 });
             }
         }, editList(id) {
-            this.axios.post(`api/admin/party_transaction/detail/`, {'id': id}).then(response => {
+            this.axios.post(`api/admin/party_account_transaction/detail/`, {'id': id}).then(response => {
                 const getData = response.data.data;
                 this.list.id = getData.id;
                 this.list.name = getData.name;
                 this.list.email = getData.detail;
             });
         },updateList() {
-            this.axios.post(`api/admin/party_transaction/update`, this.user).then((response) => {
+            this.axios.post(`api/admin/party_account_transaction/update`, this.user).then((response) => {
                 window.location.reload();
             });
         },changeStatus(id) {
