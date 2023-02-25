@@ -80,6 +80,10 @@ import holidays from '../pages/employees/holidays'
 import accounts from '../pages/employees/accounts'
 import subaccounts from '../pages/employees/subaccounts'
 import accountsubaccounts from '../pages/employees/accountsubaccounts'
+import transactions from '../pages/employees/transactions'
+import parties from '../pages/employees/parties'
+import partytransactions from '../pages/employees/partytransactions'
+import partyaccounttransactions from '../pages/employees/partyaccounttransactions'
 import leave from '../pages/employees/leave'
 import leaveemployee from '../pages/employees/leaveemployee'
 import leavesettings from '../pages/employees/leavesettings'
@@ -711,6 +715,34 @@ const routes = [
         path: '/accountsubaccounts',
         name: 'accountsubaccounts',
         component: () => import('../pages/employees/accountsubaccounts'),
+        meta: {
+            requiresAuth: true
+        }
+    },{
+        path: '/transactions',
+        name: 'transactions',
+        component: () => import('../pages/employees/transactions'),
+        meta: {
+            requiresAuth: true
+        }
+    },{
+        path: '/parties',
+        name: 'parties',
+        component: () => import('../pages/employees/parties'),
+        meta: {
+            requiresAuth: true
+        }
+    },{
+        path: '/partytransactions',
+        name: 'partytransactions',
+        component: () => import('../pages/employees/partytransactions'),
+        meta: {
+            requiresAuth: true
+        }
+    },{
+        path: '/partyaccounttransactions',
+        name: 'partyaccounttransactions',
+        component: () => import('../pages/employees/partyaccounttransactions'),
         meta: {
             requiresAuth: true
         }

@@ -39,23 +39,16 @@
                 <span>Employees</span>
               </li>
               <li class="submenu">
-              <a href="javascript:void(0)" v-bind:class="{'active': currentPath == 'employees-list' || currentPath == 'shift-list'}" class="noti-dot"><i class="la la-user"></i> <span> Employees</span> <span class="menu-arrow"></span></a>
+              <a href="javascript:void(0)" v-bind:class="{'active': currentPath == 'parties' || currentPath == 'shift-list'}" class="noti-dot"><i class="la la-user"></i> <span> Employees</span> <span class="menu-arrow"></span></a>
                 <ul style="display: none;">
-                  <li><router-link v-bind:class="{'active': currentPath == 'employees-list'}" to="/employees">All Employees</router-link></li>
+                  <li><router-link v-bind:class="{'active': currentPath == 'parties'}" to="/parties">Parties</router-link></li>
+<!--                  <li><router-link to="/parties">Party</router-link></li>-->
                   <li><router-link to="/accounts">Accounts</router-link></li>
                   <li><router-link to="/subaccounts">Sub Accounts</router-link></li>
                   <li><router-link to="/accountsubaccounts">Account Sub Accounts</router-link></li>
-                  <li><router-link to="/holidays">Holidays</router-link></li>
-                  <li><router-link to="/leaves">Leaves (Admin) <span class="badge rounded-pill bg-primary float-end">1</span></router-link></li>
-                  <li><router-link to="/leaves-employee">Leaves (Employee)</router-link></li>
-                  <li><router-link to="/leave-settings">Leave Settings</router-link></li>
-                  <li><router-link to="/attendance">Attendance (Admin)</router-link></li>
-                  <li><router-link to="/attendance-employee">Attendance (Employee)</router-link></li>
-                  <li><router-link to="/departments">Departments</router-link></li>
-                  <li><router-link to="/designations">Designations</router-link></li>
-                  <li><router-link to="/timesheet">Timesheet</router-link></li>
-                  <li><router-link v-bind:class="{'active': currentPath == 'shift-list'}" to="/shift-scheduling">Shift & Schedule</router-link></li>
-                  <li><router-link to="/overtime">Overtime</router-link></li>
+                  <li><router-link to="/transactions">Transaction</router-link></li>
+                  <li><router-link to="/partytransactions">Party Transaction</router-link></li>
+                  <li><router-link to="/partyaccounttransactions">Party Account Transaction</router-link></li>
                 </ul>
               </li>
               <li>

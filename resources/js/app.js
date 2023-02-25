@@ -172,6 +172,22 @@ import ModalHoliday from './pages/employees/holidays/modalholiday.vue'
  import AccountSubAccContent from './pages/employees/accountsubaccounts/accountsubacccontent.vue'
  import ModalAccountSubAcc from './pages/employees/accountsubaccounts/modalaccountsubacc.vue'
 
+ import HeaderTransaction from './pages/employees/transactions/headertransaction.vue'
+ import TransactionContent from './pages/employees/transactions/transactioncontent.vue'
+ import ModalTransaction from './pages/employees/transactions/modaltransaction.vue'
+
+ import HeaderParty from './pages/employees/parties/headerparty.vue'
+ import PartyContent from './pages/employees/parties/partycontent.vue'
+ import ModalParty from './pages/employees/parties/modalparty.vue'
+
+ import HeaderPartyTransactions from './pages/employees/partytransactions/headerpartytransactions.vue'
+ import PartyTransactionsContent from './pages/employees/partytransactions/partytransactionscontent.vue'
+ import ModalPartyTransactions from './pages/employees/partytransactions/modalpartytransactions.vue'
+
+ import HeaderPartyAccountTransactions from './pages/employees/partyaccounttransactions/headerpartyaccounttransactions.vue'
+ import PartyAccountTransactionsContent from './pages/employees/partyaccounttransactions/partyaccounttransactionscontent.vue'
+ import ModalPartyAccountTransactions from './pages/employees/partyaccounttransactions/modalpartyaccounttransactions.vue'
+
 import HeaderLeave from './pages/employees/leave/headerleave.vue'
 import LeaveWidget from './pages/employees/leave/leavewidget.vue'
 import LeaveFilter from './pages/employees/leave/leavefilter.vue'
@@ -632,6 +648,22 @@ app.component('modalholiday', ModalHoliday);
  app.component('headeraccountsubacc', HeaderAccountSubAcc);
  app.component('accountsubacccontent', AccountSubAccContent);
  app.component('modalaccountsubacc', ModalAccountSubAcc);
+
+ app.component('headertransaction', HeaderTransaction);
+ app.component('transactioncontent', TransactionContent);
+ app.component('modaltransaction', ModalTransaction);
+
+ app.component('headerparty', HeaderParty);
+ app.component('partycontent', PartyContent);
+ app.component('modalparty', ModalParty);
+
+ app.component('headerpartytransactions', HeaderPartyTransactions);
+ app.component('partytransactionscontent', PartyTransactionsContent);
+ app.component('modalpartytransactions', ModalPartyTransactions);
+
+ app.component('headerpartyaccounttransactions', HeaderPartyAccountTransactions);
+ app.component('partyaccounttransactionscontent', PartyAccountTransactionsContent);
+ app.component('modalpartyaccounttransactions', ModalPartyAccountTransactions);
 
 app.component('headerleave', HeaderLeave);
 app.component('leavewidget', LeaveWidget);
