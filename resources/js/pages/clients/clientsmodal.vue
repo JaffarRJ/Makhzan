@@ -171,7 +171,6 @@
                         this.getRoles = response.data.data;
                         console.log(this.getRoles)})
 
-                    // this.$router.push({ name: 'home' })
                     .catch(err => console.log(err))
                     .finally(() => this.loading = false)
             }

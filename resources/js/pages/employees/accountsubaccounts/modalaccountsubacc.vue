@@ -109,6 +109,8 @@
         },
         components: {},
         mounted() {
+            this.setAccount(),
+            this.setSubAccount()
         },
         methods: {
             addList() {
@@ -116,6 +118,24 @@
                     .then((response) => {
                         window.location.reload();
                     });
+            }, setAccount() {
+                this.axios.get(`api/admin/account/listing`)
+                    .then((response) => {
+                        this.getAccounts = response.data.data.data;
+                        console.log(this.getAccounts)})
+
+                    // this.$router.push({ name: 'home' })
+                    .catch(err => console.log(err))
+                    .finally(() => this.loading = false)
+            }, setSubAccount() {
+                this.axios.get(`api/admin/sub_account/listing`)
+                    .then((response) => {
+                        this.getSubAccounts = response.data.data.data;
+                        console.log(this.getSubAccounts)})
+
+                    // this.$router.push({ name: 'home' })
+                    .catch(err => console.log(err))
+                    .finally(() => this.loading = false)
             }
         }
     }

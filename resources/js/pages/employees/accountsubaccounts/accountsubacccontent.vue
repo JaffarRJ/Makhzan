@@ -6,8 +6,8 @@
                   <thead>
                     <tr>
                       <th>#</th>
-                      <th>Name </th>
-                      <th>Detail</th>
+                      <th>Account Name </th>
+                      <th>Sub Account Name</th>
                       <th>Status </th>
                       <th class="text-end">Action</th>
                     </tr>
@@ -15,8 +15,8 @@
                   <tbody>
                     <tr class="holiday-completed" v-for="item in getlist" :key="item.id">
                       <td>{{item.id}}</td>
-                      <td>{{item.name}}</td>
-                      <td>{{item.detail}}</td>
+                      <td>{{item.account_id}}</td>
+                      <td>{{item.sub_account_id}}</td>
                         <td>
                             <div class="dropdown action-label">
                                 <a href="javascript:void(0)" v-on:change="changeStatus(item.is_active)"
