@@ -47,7 +47,9 @@ class PartyAccountTransactionController extends Controller
     public function listing(ListingRequest $request)
     {
         $inputs = $request->all();
-        $query = $this->model->newQuery();
+        $query = $this->model->newQuery()->with(['account', 'partyTransaction' => function($q){
+            $q->with(['transaction', 'party']);
+        }]);
         if (!empty($inputs['search'])) {
             $query->where(function ($q) use ($inputs) {
                 searchTable($q, $inputs['search'], ['name']);
@@ -91,7 +93,11 @@ class PartyAccountTransactionController extends Controller
     {
         $inputs = $request->all();
         $data = $this->model->newQuery()
-            ->whereId($inputs['id'])->first();
+            ->whereId($inputs['id'])
+            ->with(['account', 'partyTransaction' => function($q){
+                $q->with(['transaction', 'party']);
+            }])
+            ->first();
         return successWithData(GENERAL_FETCHED_MESSAGE, $data);
     }
 

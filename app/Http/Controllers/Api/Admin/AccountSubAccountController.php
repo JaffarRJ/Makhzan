@@ -46,7 +46,7 @@ class AccountSubAccountController extends Controller
     public function listing(ListingRequest $request)
     {
         $inputs = $request->all();
-        $query = $this->model->newQuery();
+        $query = $this->model->newQuery()->with(['account','subAccount']);
         if (!empty($inputs['search'])) {
             $query->where(function ($q) use ($inputs) {
                 searchTable($q, $inputs['search'], ['name']);
@@ -90,7 +90,9 @@ class AccountSubAccountController extends Controller
     {
         $inputs = $request->all();
         $data = $this->model->newQuery()
-            ->whereId($inputs['id'])->first();
+            ->whereId($inputs['id'])
+            ->with(['account','subAccount'])
+            ->first();
         return successWithData(GENERAL_FETCHED_MESSAGE, $data);
     }
 
