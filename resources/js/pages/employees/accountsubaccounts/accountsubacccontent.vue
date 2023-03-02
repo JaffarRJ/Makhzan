@@ -47,6 +47,40 @@
               </div>
             </div>
           </div>
+
+    <!-- Edit Modal -->
+    <div class="modal custom-modal fade" id="edit_acc" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Account</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form @submit.prevent="updateList">
+                        <input class="form-control" type="hidden" v-model="list.id">
+                        <label class="col-form-label">Account<span class="text-danger">*</span></label>
+                        <select class="form-control" type="account" v-model="list.account_id" >
+                            <option>Select Account</option>
+                            <option v-for="account in getAccounts" :value="account.id" :key="account.id">{{account.name}}</option>
+                        </select>
+                        <label class="col-form-label">Sub Account<span class="text-danger">*</span></label>
+                        <select class="form-control" type="sub-account" v-model="list.sub_account_id">
+                            <option>Select Sub Account</option>
+                            <option v-for="subAccount in getSubAccounts" :value="subAccount.id" :key="subAccount.id">{{subAccount.name}}</option>
+                        </select>
+                        <div class="submit-section">
+                            <button class="btn btn-primary submit-btn">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- /Edit Modal -->
 </template>
 <script>
 import holiday from '../../../../assets/json/holiday.json';
@@ -63,7 +97,9 @@ export default {
         }
     },
     mounted() {
-            this.setList()
+            this.setList(),
+                this.setAccount(),
+                this.setSubAccount()
     },
     methods: {
         setList() {
@@ -87,8 +123,8 @@ export default {
             this.axios.post(`api/admin/account_sub_account/detail/`, {'id': id}).then(response => {
                 const getData = response.data.data;
                 this.list.id = getData.id;
-                this.list.name = getData.name;
-                this.list.email = getData.detail;
+                this.list.sub_account_id = getData.sub_account_id;
+                this.list.account_id = getData.account_id;
             });
         },updateList() {
             this.axios.post(`api/admin/account_sub_account/update`, this.user).then((response) => {
@@ -98,7 +134,25 @@ export default {
             this.axios.post(`api/admin/account_sub_account/updateIsActive`, {'id': id}).then((response) => {
                 window.location.reload();
             });
-        },
+        },setAccount() {
+            this.axios.get(`api/admin/account/listing`)
+                .then((response) => {
+                    this.getAccounts = response.data.data.data;
+                    console.log(this.getAccounts)})
+
+                // this.$router.push({ name: 'home' })
+                .catch(err => console.log(err))
+                .finally(() => this.loading = false)
+        }, setSubAccount() {
+            this.axios.get(`api/admin/sub_account/listing`)
+                .then((response) => {
+                    this.getSubAccounts = response.data.data.data;
+                    console.log(this.getSubAccounts)})
+
+                // this.$router.push({ name: 'home' })
+                .catch(err => console.log(err))
+                .finally(() => this.loading = false)
+        }
     },
     components: {},
     name: 'accountsubaccounts'

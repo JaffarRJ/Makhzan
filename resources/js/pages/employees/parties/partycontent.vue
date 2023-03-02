@@ -49,6 +49,41 @@
               </div>
             </div>
           </div>
+
+    <!-- Edit Modal -->
+    <div class="modal custom-modal fade" id="edit_acc" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Party</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form   @submit.prevent="updateList">
+                        <div class="form-group">
+                            <label>Party Name<span class="text-danger">*</span></label>
+                            <input class="form-control" type="hidden" v-model="list.id">
+                            <input class="form-control" type="text" v-model="list.name">
+                        </div>
+                        <div class="form-group">
+                            <label>Party CNIC<span class="text-danger">*</span></label>
+                            <input class="form-control" type="number" v-model="list.cnic">
+                        </div>
+                        <div class="form-group">
+                            <label>Party Address<span class="text-danger">*</span></label>
+                            <input class="form-control" type="text" v-model="list.address">
+                        </div>
+                        <div class="submit-section">
+                            <button class="btn btn-primary submit-btn">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Edit Modal -->
 </template>
 <script>
 import holiday from '../../../../assets/json/holiday.json';
@@ -90,10 +125,11 @@ export default {
                 const getData = response.data.data;
                 this.list.id = getData.id;
                 this.list.name = getData.name;
-                this.list.email = getData.detail;
+                this.list.cnic = getData.cnic;
+                this.list.address = getData.address;
             });
         },updateList() {
-            this.axios.post(`api/admin/party/update`, this.user).then((response) => {
+            this.axios.post(`api/admin/party/update`, this.list).then((response) => {
                 window.location.reload();
             });
         },changeStatus(id) {

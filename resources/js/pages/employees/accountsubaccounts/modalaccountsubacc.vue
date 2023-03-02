@@ -32,7 +32,7 @@
     <!-- /Add Holiday Modal -->
 
     <!-- Edit Holiday Modal -->
-    <div class="modal custom-modal fade" id="edit_acc" role="dialog">
+    <div class="modal custom-modal fade" id="edit_acco"  role="dialog">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">

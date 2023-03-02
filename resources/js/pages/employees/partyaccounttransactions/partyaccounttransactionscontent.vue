@@ -47,6 +47,42 @@
               </div>
             </div>
           </div>
+    <!-- Edit Modal -->
+    <div class="modal custom-modal fade" id="edit_acc" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Party Account Transaction</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form   @submit.prevent="updateList">
+                        <div class="form-group">
+                            <label class="col-form-label">Account<span class="text-danger">*</span></label>
+                            <input class="form-control" type="hidden" v-model="list.id">
+                            <select class="form-control" type="account" v-model="list.party_id" >
+                                <option>Select Party</option>
+                                <option v-for="party in getPartys" :value="party.id" :key="party.id">{{party.name}}</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label">Sub Account<span class="text-danger">*</span></label>
+                            <select class="form-control" type="sub-account" v-model="list.transaction_id">
+                                <option>Select Transaction</option>
+                                <option v-for="transaction in getTransactions" :value="transaction.id" :key="transaction.id">{{transaction.name}}</option>
+                            </select>
+                        </div>
+                        <div class="submit-section">
+                            <button class="btn btn-primary submit-btn">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Edit Modal -->
 </template>
 <script>
 import holiday from '../../../../assets/json/holiday.json';
@@ -90,7 +126,7 @@ export default {
                 this.list.email = getData.detail;
             });
         },updateList() {
-            this.axios.post(`api/admin/party_account_transaction/update`, this.user).then((response) => {
+            this.axios.post(`api/admin/party_account_transaction/update`, this.list).then((response) => {
                 window.location.reload();
             });
         },changeStatus(id) {

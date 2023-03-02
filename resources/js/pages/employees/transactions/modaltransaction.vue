@@ -1,6 +1,6 @@
 <template>
   <!-- Add Holiday Modal -->
-        <div class="modal custom-modal fade" id="add_acc" role="dialog">
+        <div class="modal custom-modal fade" id="add_acco" role="dialog">
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
               <div class="modal-header">

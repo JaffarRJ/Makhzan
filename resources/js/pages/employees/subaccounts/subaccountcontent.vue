@@ -19,15 +19,14 @@
                       <td>{{item.detail}}</td>
                         <td>
                             <div class="dropdown action-label">
-                                <a href="javascript:void(0)" v-on:change="changeStatus(item.is_active)"
-                                   class="btn btn-white btn-sm btn-rounded dropdown-toggle"
+                                <a href="javascript:void(0)" class="btn btn-white btn-sm btn-rounded dropdown-toggle"
                                    data-bs-toggle="dropdown" aria-expanded="false"><i
                                     class="fa fa-dot-circle-o text-success"></i> {{item.is_active == 1?
                                     "Active":"Inactive"}} </a>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="javascript:void(0)"><i
+                                    <a class="dropdown-item" v-on:click="changeStatus(item.is_active)" href="javascript:void(0)"><i
                                         class="fa fa-dot-circle-o text-success"></i> Active</a>
-                                    <a class="dropdown-item" href="javascript:void(0)"><i
+                                    <a class="dropdown-item" v-on:click="changeStatus(item.is_active)" href="javascript:void(0)"><i
                                         class="fa fa-dot-circle-o text-danger"></i> Inactive</a>
                                 </div>
                             </div>
@@ -47,6 +46,37 @@
               </div>
             </div>
           </div>
+
+    <!-- Edit Modal -->
+    <div class="modal custom-modal fade" id="edit_acc" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add Account</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form   @submit.prevent="updateList">
+                        <div class="form-group">
+                            <label>Sub Account Name<span class="text-danger">*</span></label>
+                            <input class="form-control" type="hidden" v-model="list.id">
+                            <input class="form-control" type="text" v-model="list.name">
+                        </div>
+                        <div class="form-group">
+                            <label>Sub Account Detail<span class="text-danger">*</span></label>
+                            <textarea class="form-control" rows="4"  v-model="list.detail"></textarea>
+                        </div>
+                        <div class="submit-section">
+                            <button class="btn btn-primary submit-btn">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Edit Modal -->
 </template>
 <script>
 import holiday from '../../../../assets/json/holiday.json';
@@ -87,10 +117,10 @@ export default {
                 const getData = response.data.data;
                 this.list.id = getData.id;
                 this.list.name = getData.name;
-                this.list.email = getData.detail;
+                this.list.detail = getData.detail;
             });
         },updateList() {
-            this.axios.post(`api/admin/sub_account/update`, this.user).then((response) => {
+            this.axios.post(`api/admin/sub_account/update`, this.list).then((response) => {
                 window.location.reload();
             });
         },changeStatus(id) {

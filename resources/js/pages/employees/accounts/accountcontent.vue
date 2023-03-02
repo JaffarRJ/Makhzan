@@ -47,6 +47,36 @@
               </div>
             </div>
           </div>
+    <!-- Edit Holiday Modal -->
+    <div class="modal custom-modal fade" id="edit_acc" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add Account</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form  @submit.prevent="updateList">
+                        <div class="form-group">
+                            <label>Account Name<span class="text-danger">*</span></label>
+                            <input class="form-control" type="hidden" v-model="list.id">
+                            <input class="form-control" type="text" v-model="list.name">
+                        </div>
+                        <div class="form-group">
+                            <label>Account Detail<span class="text-danger">*</span></label>
+                            <textarea class="form-control" rows="4"  v-model="list.detail"></textarea>
+                        </div>
+                        <div class="submit-section">
+                            <button class="btn btn-primary submit-btn">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Edit Holiday Modal -->
 </template>
 <script>
 import holiday from '../../../../assets/json/holiday.json';
@@ -87,10 +117,10 @@ export default {
                 const getData = response.data.data;
                 this.list.id = getData.id;
                 this.list.name = getData.name;
-                this.list.email = getData.detail;
+                this.list.detail = getData.detail;
             });
         },updateList() {
-            this.axios.post(`api/admin/account/update`, this.user).then((response) => {
+            this.axios.post(`api/admin/account/update`, this.list).then((response) => {
                 window.location.reload();
             });
         },changeStatus(id) {

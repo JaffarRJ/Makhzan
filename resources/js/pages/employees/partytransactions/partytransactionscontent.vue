@@ -47,6 +47,42 @@
               </div>
             </div>
           </div>
+    <!-- Edit Modal -->
+    <div class="modal custom-modal fade" id="edit_acc" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Party Transaction</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form   @submit.prevent="updateList">
+                        <div class="form-group">
+                            <label class="col-form-label">Account<span class="text-danger">*</span></label>
+                            <input class="form-control" type="hidden" v-model="list.id">
+                            <select class="form-control" type="account" v-model="list.party_id" >
+                                <option>Select Party</option>
+                                <option v-for="party in getPartys" :value="party.id" :key="party.id">{{party.name}}</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label">Sub Account<span class="text-danger">*</span></label>
+                            <select class="form-control" type="sub-account" v-model="list.transaction_id">
+                                <option>Select Transaction</option>
+                                <option v-for="transaction in getTransactions" :value="transaction.id" :key="transaction.id">{{transaction.name}}</option>
+                            </select>
+                        </div>
+                        <div class="submit-section">
+                            <button class="btn btn-primary submit-btn">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Edit Modal -->
 </template>
 <script>
 import holiday from '../../../../assets/json/holiday.json';
@@ -63,7 +99,9 @@ export default {
         }
     },
     mounted() {
-            this.setList()
+            this.setList(),
+                this.setParty(),
+                this.setTransaction()
     },
     methods: {
         setList() {
@@ -86,18 +124,36 @@ export default {
             this.axios.post(`api/admin/party_transaction/detail/`, {'id': id}).then(response => {
                 const getData = response.data.data;
                 this.list.id = getData.id;
-                this.list.name = getData.name;
-                this.list.email = getData.detail;
+                this.list.party_id = getData.party_id;
+                this.list.transaction_id = getData.transaction_id;
             });
         },updateList() {
-            this.axios.post(`api/admin/party_transaction/update`, this.user).then((response) => {
+            this.axios.post(`api/admin/party_transaction/update`, this.list).then((response) => {
                 window.location.reload();
             });
         },changeStatus(id) {
             this.axios.post(`api/admin/party_transaction/updateIsActive`, {'id': id}).then((response) => {
                 window.location.reload();
             });
-        },
+        }, setParty() {
+        this.axios.get(`api/admin/party/listing`)
+            .then((response) => {
+                this.getPartys = response.data.data.data;
+                console.log(this.getAccounts)})
+
+            // this.$router.push({ name: 'home' })
+            .catch(err => console.log(err))
+            .finally(() => this.loading = false)
+    }, setTransaction() {
+        this.axios.get(`api/admin/transaction/listing`)
+            .then((response) => {
+                this.getTransactions = response.data.data.data;
+                console.log(this.getSubAccounts)})
+
+            // this.$router.push({ name: 'home' })
+            .catch(err => console.log(err))
+            .finally(() => this.loading = false)
+    }
     },
     components: {},
     name: 'partytransactions'
